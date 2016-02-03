@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 9]> <html lang='fr-FR' class='no-js lt-ie9 lt-ie10'> <![endif]-->
+<!--[if IE 9]> <html lang='fr-FR' class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang='fr-FR' class='no-js'> <!--<![endif]-->
+
+	<head>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	  	<meta charset='utf-8'>
+	  	<title></title>
+	  	<meta name='description' content=''>
+	  	<meta name='viewport' content='width=device-width,initial-scale=1'>
+  		<link rel='stylesheet' href='css/jquery.fullPage.css'>
+	  	<link rel='stylesheet' href='css/style.css'> 	
+<!-- Pickadate -->
+<link rel="stylesheet" href="js/libs/pickadate/themes/default.css">
+<link rel="stylesheet" href="js/libs/pickadate/themes/default.date.css" id="theme_date">
+<link rel="stylesheet" hhref="js/libs/pickadate/themes/default.time.css" id="theme_time">
+	  
+	  	<script src='js/modernizr.min.js'></script>
+	  	
+	</head>
+
+	<body>		
+		
+	
+		
+		
+		<input type="text" name="date-debut" id="date-debut" value="jj/mm/aaaa"/>
+
+		
+		
+	  	<script src='js/jquery-2.1.4.min.js'></script>
+	  	<script type="text/javascript" src="js/TweenMax.min.js"></script>
+	  	<script type="text/javascript" src="js/jquery.slimscroll.js"></script>
+	  	<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+<!-- Pickadate -->
+<script src="js/libs/pickadate/compressed/legacy.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/libs/pickadate/compressed/picker.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/libs/pickadate/compressed/picker.date.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/libs/pickadate/compressed/picker.time.js" type="text/javascript" charset="utf-8"></script>
+
+
+		<script type="text/javascript">
+		
+			var mois = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+			var moisCourts = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jui', 'Jui', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'] ;
+			var jours = [ 'Dimanche','Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+			var joursCourts = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+			var joursFeries=[
+			false,
+			6,7,
+			[2016,1,01], //jour de l'an
+			[2016,3,28], //Lundi de Pâques	
+			[2016,5,1], //Fête du Travail	
+			[2016,5,5], //8 Mai 1945
+			[2016,5,8], //Jeudi de l'Ascension
+			[2016,5,16], //Lundi de Pentecôte
+			[2016,7,14], //Fête Nationale
+			[2016,8,15], //Assomption
+			[2016,11,1], //La Toussaint
+			[2016,11,11], //Armistice
+			[2016,12,25]	//Noël
+			
+			]; 
+			var picka1 = $("#date-debut").pickadate({
+				// Strings and translations
+				monthsFull: mois,
+				monthsShort: moisCourts,
+				weekdaysFull: jours,
+				weekdaysShort: joursCourts,
+				// Buttons
+				today: false,
+				clear: false,
+				close: 'Fermer',
+				disable: joursFeries,
+				min:true,
+				firstDay: 1,
+				// Formats
+				format: 'dd/mm/yyyy',
+				selectMonths: true,
+				selectYears: true,
+				
+				onSet: function(thingSet) {
+				    if(thingSet.select){				        
+				        
+				    }
+				}
+			});
+	
+			
+
+			
+			
+			
+			
+			
+		
+		</script>
+	</body>
+
+</html>
