@@ -9,7 +9,8 @@
     <meta charset='utf-8'>
     <title></title>
     <meta content='' name='description'>
-    <meta content='width=device-width,initial-scale=1' name='viewport'>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    
     <script src="https://use.typekit.net/ojp7gkn.js">
     </script>
     <script>
@@ -18,11 +19,15 @@
     <link href='css/jquery.fullPage.css' rel='stylesheet'>
     <link href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css' rel='stylesheet'>
     <link href='css/style.css' rel='stylesheet'>
+    <!-- Pickadate -->
+    <link rel="stylesheet" href="js/libs/pickadate/themes/default.css">
+    <link rel="stylesheet" href="js/libs/pickadate/themes/default.date.css" id="theme_date">
+    <link rel="stylesheet" hhref="js/libs/pickadate/themes/default.time.css" id="theme_time">
     <script src='js/modernizr.min.js'>
     </script>
 </head>
 <body>
-
+	<div id="loader"><div class="message"><img alt="chargement" height="50" width="50" src="./imgLayout/loader.gif">Chargement</div></div>
   <header class="brand">
       <div class="left">
           <a class='logo' href='#'>Crédit Agricole Atlantique Vendée</a>
@@ -36,6 +41,7 @@
               <img alt="" src="./imgLayout/instant-habitat.svg">
           </div>
       </div>
+      
   </header>
   <div class='wrapper fullpage' role='main'>
       <section class="section left introduction">
@@ -75,7 +81,7 @@
                   <img alt="" src="./imgLayout/persos-1.png">
               </div>
           </article>
-          <article class="informations">
+          <article class="informations informations-1">
               <span class="bullet">1</span>
               <h2>
                   Prendre rendez-vous <span class="minor-title">avec votre conseiller</span>
@@ -228,7 +234,7 @@
                       <li class="tab-link current" data-tab="tab-3-1">Description
                       </li>
                       <li class="tab-link" data-tab="tab-3-2">
-                          <span class="hide-small">Documents</span> <span class="capitalize-small">à prévoir</span><span class="nb">4</span>
+                          <span class="hide-small">Documents</span> <span class="capitalize-small">à prévoir</span><span class="nb">3</span>
                       </li>
                   </ul>
               </div>
@@ -250,7 +256,7 @@
                       </div>
                       <div class="description tab-content" data-tab="tab-4-2" id="tab-4-2">
                           <ul>
-                              <li>Pour toute demande de renseignement , le service est joignable par mail : <a href="#">adresse mail à préciser</a>
+                              <li>Pour toute demande de renseignement , le service est joignable par mail : <a href="mailto:scc@ca-atlantique-vendee.fr">scc@ca-atlantique-vendee.fr</a>, ou par téléphone au <a href="tel:0240305700">02 40 30 57 00</a>
                               </li>
                               <li>
                                   <a href="http://faq.ca-atlantique-vendee.fr/categories/3036-achat-immobilier" title="Question/réponses : l'achat immobilier">Tout savoir sur le mode opératoire</a>
@@ -337,12 +343,11 @@
                               Pour connaître vos dates butoir, indiquez une date de réception de votre offre de prêt :<br>
                           </p>
                           <p>
-                              &#8594; <input id="datepicker" type="text">
+                              &#8594; <input type="text" name="date-debut" id="date-debut" value="jj/mm/aaaa"/>
+                             
                           </p>
-                          <p class="response">
-                              <strong>Vous devez impérativement renvoyer cette offre remplie entre le XX/XX/XXXX et le XX/XX/XXXX.</strong><br>
-                              ( Cette estimation ne tiens pas compte des éventuels jours fériés )
-                          </p>
+                          <p class="response"><strong>cliquez ci-dessus, et choisissez une date de réception sur le calendrier</span>.</strong><br/></p>
+                         
                       </div>
                       <div class="documents tab-content" data-tab="tab-5-2" id="tab-5-2">
                           <p>
@@ -527,8 +532,8 @@
       </section>
   </div>
   <div class="scrollblock sky">
-      <div data-0="background-position:0px 0px;" data-end="background-position:-500px -10000px;" id="bg1"></div>
-      <div data-0="background-position:0px 0px;" data-end="background-position:-500px -8000px;" id="bg2"></div>
+      <div data-0="background-position:0px 0px;" data-end="background-position:0 -10000px;" id="bg1"></div>
+      <div data-0="background-position:0px 0px;" data-end="background-position:0 -8000px;" id="bg2"></div>
   </div>
   <div class="connect plumb-container">
       <div class="c-point point-0"></div>
@@ -550,6 +555,8 @@
       <div class="c-point point-16"></div>
       <div class="c-point point-17"></div>
   </div>
+        <a href="#menu" id="mobile-menu" class="first-step"></a>
+  <div class="popup fail"><div class="infos"><p>Nous sommes désolé, vous ne pourrez pas profiter pleinement de cette expérience sur votre matériel.</p><p>Vous pouvez en revanche <a href="">télécharger l'infographie en pdf</a>, ou consulter le site sur votre tablette, ou votre ordinateur.</p><p>L'équipe du Crédit Agricole Atlantique-Vendée</p></div></div>
   <footer class="brand" role='contentinfo'>
       <div class="left">
           <div class="thematique">
@@ -569,13 +576,18 @@
           </p><a class='logo' href='#'>Crédit Agricole Atlantique Vendée</a>
       </div>
   </footer>
+  
   <script src='js/jquery-2.1.4.min.js'></script> 
-  <script src="js/TweenMax.min.js" type="text/javascript"></script> 
+  <script src="js/tweenMax.min.js" type="text/javascript"></script> 
   <script src='js/jquery-ui-1.10.3.custom.min.js'></script> 
   <script src="js/jquery.slimscroll.js" type="text/javascript"></script> 
   <script src="js/jquery.fullPage.js" type="text/javascript"></script> 
   <script src="https://jsplumbtoolkit.com/lib/jsPlumb-2.0.5-min.js" type="text/javascript"></script> 
-  <script src="js/skrollr.js" type="text/javascript"></script> 
+  <script src="js/skrollr.js" type="text/javascript"></script>
+  <script src="js/libs/pickadate/compressed/legacy.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/libs/pickadate/compressed/picker.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/libs/pickadate/compressed/picker.date.js" type="text/javascript" charset="utf-8"></script>
+  <script src="js/libs/pickadate/compressed/picker.time.js" type="text/javascript" charset="utf-8"></script>
   <script src="js/isMobile.js" type="text/javascript"></script> 
   <script src='js/script.js'></script>
   </body>

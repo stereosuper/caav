@@ -13,10 +13,11 @@
 @grisbeige: #e1e0d9;
 @rouge:#e63e2c;
 @transition: .1s ease-in-out;
+@blancalphafond: rgba(255, 255, 255, 0.75);
 
 
 /******* GÉNÉRAL *******/
-.js div#preloader { position: fixed; left: 0; top: 0; z-index: 89; width: 100%; height: 100%; overflow: visible; background: #fff url('http://files.mimoymima.com/images/loading.gif') no-repeat center center; }
+
 ::-moz-selection{ 
 	background: #000;  
 	color: #fff;
@@ -30,13 +31,68 @@
 
 html{
   font-size: 62.5%; /* sets the base font to 10px for easier math */ 
+  &.js{
+  		
+  		overflow: hidden;
+  		
+  		#loader { 
+  		display: none;  
+  		position: fixed; 
+  		left: 0; top: 0; 
+  		z-index: 89;
+  		width: 100%;
+  		height: 100%;
+  		overflow: visible; 
+  			.message{
+  			text-align:center;
+  			width: 150px;
+  			height: auto;
+  			color: @vert1;
+  				img{
+  				display: block;
+  				margin: 0 auto;
+  				}
+  			position: absolute;
+  			left: 50%;
+  			top: 50%;
+  			transform: translate(-50%, -50%);
+  			}
+  		 }
+  		
+  		
+  		
+  		.wrapper, #fp-nav, #mobile-menu, .scrollblock, .plumb-container{
+  		opacity: 0;
+  		}
+  		&.loaded-page{
+  		
+  		  		overflow: auto;
+  		
+  		
+  		.wrapper, #fp-nav, #mobile-menu, .scrollblock, .plumb-container{
+  			opacity: 1;
+  			}
+  			
+  		#loader {
+  			display: none;  			
+  		}	
+  		
+  		}
+  		
+  		
+  		
+  		
+  		
+  	}
 }
 
 body{
   font-size: 1.6em;
   /* sets the default sizing to make sure nothing is actually 16px */
   line-height: 1;
-  font-family: "myriad-pro",sans-serif;    
+  font-family: "myriad-pro",sans-serif; 
+  
+  	   
   
 }
 
@@ -102,6 +158,15 @@ section .tab-content li:before{content:"• "; color: @vert1;margin-left:-8px;}
 
 
 .wrapper{
+
+	
+
+  		transition:  .2s ease-in;
+	&.is-menu{
+	transform: translate(-100px, 0);
+	opacity: 0.5;
+	}
+
 overflow: hidden;
 z-index: 11;
 
@@ -471,7 +536,114 @@ z-index: 90;
 }
 
 
+///**popups**/
+.pop-up{
 
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0;
+display: none;
+background-color: white;
+z-index: 89;
+	
+		.infos{
+		width: 70%;
+		height: 100%;
+		position: absolute;
+		background-color: white;
+		left: 15%;
+		margin-top: 100px;
+		
+}
+
+}
+.fail{
+	
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0;
+display: none;
+background-color: white;
+z-index: 120;
+		.infos{
+		width: 70%;
+		height: 100%;
+		position: absolute;
+		background-color: white;
+		left: 15%;
+		text-align: center;
+		margin-top: 100px;
+		
+		}
+	&.show{
+	display: block;
+	}
+
+}
+
+/***** menu mobile, masqué pour le reste**/
+#mobile-menu{
+	
+	display: none;
+	position: fixed;
+	background-color: @vert1;
+	padding: 5px;
+	right: 10px;
+	width: 50px;
+	height: 50px;
+	font-size: 0.7em;
+	top:  60px;
+	color: white;
+	border-radius: 25px;
+	vertical-align: middle;
+	transition:  .3s ease-in-out;
+	z-index: 120;
+		
+		&.first-step{
+			top:  120px;
+			&.actif{ right: 90px;}
+		}
+	
+	  &:before, &:after {
+	    background: #fff;
+	    backface-visibility: hidden;
+	    content: "";
+	    height: 3px;
+	    width: 20px;
+	    margin: 0 0 0 10px;
+	    
+	  }
+	  &:before {
+	    box-shadow: #fff 0 14px 0 0;
+	    position: absolute;
+	    top: 16px;
+	  }
+	  &:after {
+	    position: absolute;
+	    top: 23px;
+	  }
+	  &.actif {  
+	    margin-top: 0px;
+	   
+	    
+	    &:before {
+	      box-shadow: transparent 0 0 0 0;
+	      top: 23px;
+	      transform: rotate(225deg);
+	    }
+	    &:after {  
+	      top: 23px;
+	      transform: rotate(315deg);
+	    }
+	  }	
+		
+		
+		
+		
+	
+}
 /******* HEADER *******/
 header{
 
@@ -515,68 +687,58 @@ z-index: 90;
 	z-index: 8;
 	
 	#bg1,#bg2{
-	
-	z-index:50;
-	top:0;
-	left:0;
-	width:50%;
+	width:100%;
 	height:100%;
+	z-index:50;
+	
 	background:url(../imgLayout/clouds-1.png) repeat-y  0 0;
-	background-size: 75%;
+	background-size: 100%;
 	}
 
 	#bg2 {
 	z-index:49;
+	
 background:url(../imgLayout/clouds-2.png) repeat-y  0 0;
 	}
-	#bg3,#bg4{
+		#bg3,#bg4{
 	
 		z-index:50;
 		top:0;
-		left:50%;
-		width:50%;
-		height:100%;
-		background:url(../imgLayout/clouds-3.png) repeat-y  right top;
+		background:url(../imgLayout/clouds-3.png) repeat-y  0 0;
 		}
 	
 		#bg4 {
 		z-index:49;
-	background:url(../imgLayout/clouds-4.png) repeat-y right top;
+		background:url(../imgLayout/clouds-4.png) repeat-y 0 0;
 		}
 
 
-.skrollable {
-	/*
-	 * First-level skrollables are positioned relative to window
-	 */
-	position:fixed;
+	.skrollable {
+	
+		position: fixed;
+		z-index:100;
+	}
 
-	/*
-	 * Skrollables by default have a z-index of 100 in order to make it easy to position elements in front/back without changing each skrollable
-	 */
-	z-index:100;
-}
-
-.skrollr-mobile .skrollable {
-	/*
-		May cause issues on Android default browser (see #331 on GitHub).
-	*/
-	position:absolute;
-}
-
-.skrollable .skrollable {
-	/*
-	 * Second-level skrollables are positioned relative their parent skrollable
-	 */
-	position:absolute;
-}
-
-.skrollable .skrollable .skrollable {
-	/*
-	 * Third-level (and below) skrollables are positioned static
-	 */
-	position:static;
-}
+	.skrollr-mobile .skrollable {
+		/*
+			May cause issues on Android default browser (see #331 on GitHub).
+		*/
+		position:absolute;
+	}
+	
+	.skrollable .skrollable {
+		/*
+		 * Second-level skrollables are positioned relative their parent skrollable
+		 */
+		position:absolute;
+	}
+	
+	.skrollable .skrollable .skrollable {
+		/*
+		 * Third-level (and below) skrollables are positioned static
+		 */
+		position:static;
+	}
 
 }
 
@@ -619,6 +781,8 @@ background:url(../imgLayout/clouds-2.png) repeat-y  0 0;
 	.wrapper-informations{
 	margin: 0 15px 10px 70px;
 	padding: 0;
+		background-color: @blancalphafond;
+	
 	}
 	
 	.content-txt{
@@ -830,6 +994,16 @@ background:url(../imgLayout/clouds-2.png) repeat-y  0 0;
 
 
 #fp-nav{
+	transition:  .2s ease-in;
+		&.is-mobile{
+		
+		right: -50px;
+			&.show{
+			right: 17px;
+			
+			}
+		}
+
 	background-color: white;
 	.totalbar, .progressbar{
 	display: block;
@@ -870,6 +1044,7 @@ background:url(../imgLayout/clouds-2.png) repeat-y  0 0;
 			
 			
 			}
+			
 			&.active,&:hover,&.active:hover{
 					opacity: 1;
 				span{
@@ -932,10 +1107,11 @@ background:url(../imgLayout/clouds-2.png) repeat-y  0 0;
 		section ul.tabs li{
 			box-sizing: border-box;
 
-			background: none;
+			background-color: @blancalphafond;
+			
 			display: inline-block;
 			cursor: pointer;
-
+				
 			border-radius: 0 0 10px 10px;
 			vertical-align: middle;
 			padding: 10px 10px 10px 10px;
@@ -980,7 +1156,7 @@ background:url(../imgLayout/clouds-2.png) repeat-y  0 0;
 
 		ul.tabs li.current{
 		
-			background: white;
+			background-color: @blancalphafond;
 			border-radius: 0 0 10px 10px;
 			border-bottom: 1px solid @txt ;
 			border-left: 1px solid @txt;
@@ -1024,8 +1200,14 @@ background:url(../imgLayout/clouds-2.png) repeat-y  0 0;
 
 		.tab-content.current{
 			display: block;
+			
 		}
 ///**JSPLUMB **///	
+
+	.plumb-container{
+		z-index: 9;
+	
+	}
 
 .connect{
 	display: block;
@@ -1043,7 +1225,7 @@ background:url(../imgLayout/clouds-2.png) repeat-y  0 0;
 		left: 50%;
 		transform: translate(-50%, 0);
 		z-index: 100;
-		opacity: 1;
+		opacity: 0;
 		
 	}
 	.c-point:nth-child(1) {

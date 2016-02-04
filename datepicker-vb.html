@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]> <html lang='fr-FR' class='no-js lt-ie9 lt-ie10'> <![endif]-->
+<!--[if IE 9]> <html lang='fr-FR' class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html lang='fr-FR' class='no-js'> <!--<![endif]-->
+
+	<head>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	  	<meta charset='utf-8'>
+	  	<title></title>
+	  	<meta name='description' content=''>
+	  	<meta name='viewport' content='width=device-width,initial-scale=1'>
+  		<link rel='stylesheet' href='css/jquery.fullPage.css'>
+	  	<link rel='stylesheet' href='css/style.css'>
+<!-- Pickadate -->
+<link rel="stylesheet" href="js/libs/pickadate/themes/default.css">
+<link rel="stylesheet" href="js/libs/pickadate/themes/default.date.css" id="theme_date">
+<link rel="stylesheet" hhref="js/libs/pickadate/themes/default.time.css" id="theme_time">
+
+	  	<script src='js/modernizr.min.js'></script>
+
+	</head>
+
+	<body>
+
+
+
+
+		<input type="text" name="date-debut" id="date-debut" value="jj/mm/aaaa"/>
+		<p>Start : <span id="date-start"></span></p>
+		<p>End : <span id="date-end"></span></p>
+
+
+
+	  	<script src='js/jquery-2.1.4.min.js'></script>
+	  	<script type="text/javascript" src="js/TweenMax.min.js"></script>
+	  	<script type="text/javascript" src="js/jquery.slimscroll.js"></script>
+	  	<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+<!-- Pickadate -->
+<script src="js/libs/pickadate/compressed/legacy.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/libs/pickadate/compressed/picker.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/libs/pickadate/compressed/picker.date.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/libs/pickadate/compressed/picker.time.js" type="text/javascript" charset="utf-8"></script>
+
+
+		<script type="text/javascript">
+
+            /**
+             * ATTENTION : A modifier tous les ans
+             */
+            var lundiPaques = new Date(2016, 2, 28);
+            var jeudiAscension = new Date(2016, 4, 5);
+            var lundiPentecote = new Date(2016, 4, 16);
+
+
+            var mois = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+            var moisCourts = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jui', 'Jui', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'] ;
+            var jours = [ 'Dimanche','Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+            var joursCourts = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+			var joursFeries=[
+				false,
+				6,7,
+				new Date(new Date().getFullYear(), 0, 1),   // Jour de l'an
+				new Date(new Date().getFullYear(), 4, 1),   //Fête du Travail
+				new Date(new Date().getFullYear(), 6, 14),  //Fête Nationale
+				new Date(new Date().getFullYear(), 4, 8),   //8 Mai 1945
+				new Date(new Date().getFullYear(), 7, 15),  //Assomption
+				new Date(new Date().getFullYear(), 10, 1),  //La Toussaint
+				new Date(new Date().getFullYear(), 10, 11), //Armistice
+				new Date(new Date().getFullYear(), 11, 25), //Noël
+				lundiPaques,
+				jeudiAscension,
+				lundiPentecote
+			];
+
+			var delay = new BankDelayDates();
+			delay.addDisableDate(lundiPaques); // Lundi de Pâques
+			delay.addDisableDate(jeudiAscension);  // Jeudi de l'ascension
+			delay.addDisableDate(lundiPentecote); // Lundi de pentecôte
+
+			var picka1 = $("#date-debut").pickadate({
+				// Strings and translations
+				monthsFull: mois,
+				monthsShort: moisCourts,
+				weekdaysFull: jours,
+				weekdaysShort: joursCourts,
+				// Buttons
+				today: false,
+				clear: false,
+				close: 'Fermer',
+				disable: joursFeries,
+				min:true,
+				firstDay: 1,
+				// Formats
+				format: 'dd/mm/yyyy',
+				selectMonths: true,
+				selectYears: true,
+
+				onSet: function(thingSet) {
+					if(thingSet.select){
+						delay.init(thingSet.select);
+
+						$('#date-start').html(delay.getStartDate().toLocaleDateString());
+						$('#date-end').html(delay.getEndDate().toLocaleDateString());
+					}
+				}
+			});
+
+			/**
+			 * Gestion des délais de retractation pour un prêt immobilier.
+             *
+			 * On créé une nouvelle instance simplement avec ce code :
+             *
+             *      var delay = new BankDelayDates();
+             *
+			 * Les jours fériés sont initialisés par défaut avec les jours fixe (25 décembre, 1 Mai, etc).
+             * Pour ajouter les jours fériés variables, il suffit de faire :
+             *
+             *      delay.addDisableDate(new Date(2016, 2, 28));
+             *
+             * Attention, les mois commence à 0.
+             *
+             * Ensuite, il faut indiquer la date de réception du prêt (sous le format timestamp) :
+             *
+             *      delay.init(...);
+             *
+             * Et on obtient les dates de début et de fin avec les méthodes suivantes :
+             *
+             *      delay.getStartDate();
+             *      delay.getEndDate();
+             *
+             * Qui retourne un objet "Date" en javascript.
+             *
+			 */
+			function BankDelayDates() {
+				// Date initiale
+				this.initialDate = new Date();
+
+				// Liste des jours feriés (en JavaScript, le mois de janvier correspond à 0 et le mois de décembre à 11)
+				this.disableDates = [
+					new Date(new Date().getFullYear(), 0, 1),   // Jour de l'an
+					new Date(new Date().getFullYear(), 4, 1),   //Fête du Travail
+					new Date(new Date().getFullYear(), 6, 14),  //Fête Nationale
+					new Date(new Date().getFullYear(), 4, 8),   //8 Mai 1945
+					new Date(new Date().getFullYear(), 7, 15),  //Assomption
+					new Date(new Date().getFullYear(), 10, 1),  //La Toussaint
+					new Date(new Date().getFullYear(), 10, 11), //Armistice
+					new Date(new Date().getFullYear(), 11, 25)  //Noël
+				];
+
+				this.startOffset = 11;
+				this.endOffset = 30;
+
+				/**
+				 * Ajoute des jours fériés dans la liste.
+				 *
+				 * @param {Date} date
+				 */
+				this.addDisableDate = function(date) {
+					this.disableDates.push(date);
+				}
+
+				/**
+				 * Initialise la date de réception du prêt.
+				 *
+				 * @param {int} timestamp
+				 */
+				this.init = function(timestamp) {
+					this.initialDate = new Date(timestamp);
+				}
+
+				/**
+				 * Retourne la date de début du délai de retractation.
+				 *
+				 * @return {Date}
+				 */
+				this.getStartDate = function() {
+					return this._getNextValidDate(this.startOffset);
+				}
+
+				/**
+				 * Retourne la date de fin du délai de retractation.
+				 *
+				 * @return {Date}
+				 */
+				this.getEndDate = function() {
+					return this._getNextValidDate(this.endOffset);
+				}
+
+				/**
+				 * Fonction privée : récupère la prochaine date valide X jour après la date initiale.
+				 *
+				 * @param  {int} offset Nombre de jour de décalage entre la date initiale et la date souhaitée.
+				 * @return {Date}
+				 */
+				this._getNextValidDate = function (offset) {
+					var startDate = new Date(this.initialDate.getTime());
+
+					startDate.setDate(this.initialDate.getDate() + offset);
+
+					while (! this._isValid(startDate)) {
+						startDate.setDate(startDate.getDate() + 1);
+					}
+
+					return startDate;
+				}
+
+				/**
+				 * Fonction privée : vérifie si la date est valide :
+				 * - Ni samedi
+				 * - Ni dimanche
+				 * - Ni un jour ferié
+				 *
+				 * @param  {Date} date La date à vérifier
+				 * @return {boolean}
+				 */
+				this._isValid = function (date) {
+					var isValid = true;
+
+					// Pas de samedi ou dimanche
+					if (6 == date.getDay() || 0 == date.getDay()) {
+						isValid = false;
+					}
+
+					// Pas de jour ferié
+					$.each(this.disableDates, function(index, currentDate){
+						if (date.getTime() == currentDate.getTime()) {
+							isValid = false;
+							return false;
+						}
+					});
+
+					return isValid;
+				}
+			}
+		</script>
+	</body>
+
+</html>

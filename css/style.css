@@ -222,16 +222,6 @@ menu {
   src: url('../fonts/font.eot?#iefix') format('embedded-opentype'), url('../fonts/font.woff') format('woff'), url('../fonts/font.ttf') format('truetype'), url('../fonts/font.svg') format('svg');
 }
 /******* GÉNÉRAL *******/
-.js div#preloader {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 89;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-  background: #fff url('http://files.mimoymima.com/images/loading.gif') no-repeat center center;
-}
 ::-moz-selection {
   background: #000;
   color: #fff;
@@ -245,6 +235,55 @@ menu {
 html {
   font-size: 62.5%;
   /* sets the base font to 10px for easier math */
+}
+html.js {
+  overflow: hidden;
+}
+html.js #loader {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 89;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+html.js #loader .message {
+  text-align: center;
+  width: 150px;
+  height: auto;
+  color: #27848a;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+html.js #loader .message img {
+  display: block;
+  margin: 0 auto;
+}
+html.js .wrapper,
+html.js #fp-nav,
+html.js #mobile-menu,
+html.js .scrollblock,
+html.js .plumb-container {
+  opacity: 0;
+}
+html.js.loaded-page {
+  overflow: auto;
+}
+html.js.loaded-page .wrapper,
+html.js.loaded-page #fp-nav,
+html.js.loaded-page #mobile-menu,
+html.js.loaded-page .scrollblock,
+html.js.loaded-page .plumb-container {
+  opacity: 1;
+}
+html.js.loaded-page #loader {
+  display: none;
 }
 body {
   font-size: 1.6em;
@@ -308,8 +347,16 @@ section .tab-content li:before {
   margin-left: -8px;
 }
 .wrapper {
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
   overflow: hidden;
   z-index: 11;
+}
+.wrapper.is-menu {
+  -webkit-transform: translate(-100px, 0);
+      -ms-transform: translate(-100px, 0);
+          transform: translate(-100px, 0);
+  opacity: 0.5;
 }
 img {
   /*max-width: 100%;*/
@@ -615,6 +662,103 @@ footer.brand .left .construire {
   padding: 5px 20px;
   width: 220px;
 }
+.pop-up {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  display: none;
+  background-color: white;
+  z-index: 89;
+}
+.pop-up .infos {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  left: 15%;
+  margin-top: 100px;
+}
+.fail {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  display: none;
+  background-color: white;
+  z-index: 120;
+}
+.fail .infos {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  background-color: white;
+  left: 15%;
+  text-align: center;
+  margin-top: 100px;
+}
+.fail.show {
+  display: block;
+}
+/***** menu mobile, masqué pour le reste**/
+#mobile-menu {
+  display: none;
+  position: fixed;
+  background-color: #27848a;
+  padding: 5px;
+  right: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 0.7em;
+  top: 60px;
+  color: white;
+  border-radius: 25px;
+  vertical-align: middle;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  z-index: 120;
+}
+#mobile-menu.first-step {
+  top: 120px;
+}
+#mobile-menu.first-step.actif {
+  right: 90px;
+}
+#mobile-menu:before,
+#mobile-menu:after {
+  background: #fff;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  content: "";
+  height: 3px;
+  width: 20px;
+  margin: 0 0 0 10px;
+}
+#mobile-menu:before {
+  box-shadow: #fff 0 14px 0 0;
+  position: absolute;
+  top: 16px;
+}
+#mobile-menu:after {
+  position: absolute;
+  top: 23px;
+}
+#mobile-menu.actif {
+  margin-top: 0px;
+}
+#mobile-menu.actif:before {
+  box-shadow: transparent 0 0 0 0;
+  top: 23px;
+  -webkit-transform: rotate(225deg);
+      -ms-transform: rotate(225deg);
+          transform: rotate(225deg);
+}
+#mobile-menu.actif:after {
+  top: 23px;
+  -webkit-transform: rotate(315deg);
+      -ms-transform: rotate(315deg);
+          transform: rotate(315deg);
+}
 /******* HEADER *******/
 header {
   display: block;
@@ -652,13 +796,11 @@ header .right a:after {
 }
 .sky #bg1,
 .sky #bg2 {
-  z-index: 50;
-  top: 0;
-  left: 0;
-  width: 50%;
+  width: 100%;
   height: 100%;
+  z-index: 50;
   background: url(../imgLayout/clouds-1.png) repeat-y 0 0;
-  background-size: 75%;
+  background-size: 100%;
 }
 .sky #bg2 {
   z-index: 49;
@@ -668,41 +810,32 @@ header .right a:after {
 .sky #bg4 {
   z-index: 50;
   top: 0;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  background: url(../imgLayout/clouds-3.png) repeat-y right top;
+  background: url(../imgLayout/clouds-3.png) repeat-y 0 0;
 }
 .sky #bg4 {
   z-index: 49;
-  background: url(../imgLayout/clouds-4.png) repeat-y right top;
+  background: url(../imgLayout/clouds-4.png) repeat-y 0 0;
 }
 .sky .skrollable {
-  /*
-	 * First-level skrollables are positioned relative to window
-	 */
   position: fixed;
-  /*
-	 * Skrollables by default have a z-index of 100 in order to make it easy to position elements in front/back without changing each skrollable
-	 */
   z-index: 100;
 }
 .sky .skrollr-mobile .skrollable {
   /*
-		May cause issues on Android default browser (see #331 on GitHub).
-	*/
+			May cause issues on Android default browser (see #331 on GitHub).
+		*/
   position: absolute;
 }
 .sky .skrollable .skrollable {
   /*
-	 * Second-level skrollables are positioned relative their parent skrollable
-	 */
+		 * Second-level skrollables are positioned relative their parent skrollable
+		 */
   position: absolute;
 }
 .sky .skrollable .skrollable .skrollable {
   /*
-	 * Third-level (and below) skrollables are positioned static
-	 */
+		 * Third-level (and below) skrollables are positioned static
+		 */
   position: static;
 }
 /******* FOOTER *******/
@@ -739,6 +872,7 @@ header .right a:after {
 .fullpage .wrapper-informations {
   margin: 0 15px 10px 70px;
   padding: 0;
+  background-color: rgba(255, 255, 255, 0.75);
 }
 .fullpage .content-txt {
   display: block;
@@ -960,7 +1094,15 @@ header .right a:after {
   padding-bottom: 5px;
 }
 #fp-nav {
+  -webkit-transition: 0.2s ease-in;
+  transition: 0.2s ease-in;
   background-color: white;
+}
+#fp-nav.is-mobile {
+  right: -50px;
+}
+#fp-nav.is-mobile.show {
+  right: 17px;
 }
 #fp-nav .totalbar,
 #fp-nav .progressbar {
@@ -1050,7 +1192,7 @@ ul.tabs {
 }
 section ul.tabs li {
   box-sizing: border-box;
-  background: none;
+  background-color: rgba(255, 255, 255, 0.75);
   display: inline-block;
   cursor: pointer;
   border-radius: 0 0 10px 10px;
@@ -1090,7 +1232,7 @@ section ul.tabs li.documents .nb {
   background: #27848a;
 }
 ul.tabs li.current {
-  background: white;
+  background-color: rgba(255, 255, 255, 0.75);
   border-radius: 0 0 10px 10px;
   border-bottom: 1px solid #565656;
   border-left: 1px solid #565656;
@@ -1130,6 +1272,9 @@ ul.tabs li.current:after {
 .tab-content.current {
   display: block;
 }
+.plumb-container {
+  z-index: 9;
+}
 .connect {
   display: block;
   position: absolute;
@@ -1149,7 +1294,7 @@ ul.tabs li.current:after {
       -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   z-index: 100;
-  opacity: 1;
+  opacity: 0;
 }
 .connect .c-point:nth-child(1) {
   top: 80%;
@@ -1752,19 +1897,39 @@ ul.tabs li.current:after {
 }
 @media (max-width: 450px) {
   /*phone portrait*/
-  #fp-nav {
-    display: none;
-    -webkit-transform: scale(0.75);
-        -ms-transform: scale(0.75);
-            transform: scale(0.75);
-    right: 0;
+  #mobile-menu {
+    display: block;
   }
-  #fp-nav ul li {
-    background-color: red;
-    width: 25px;
+  #fp-nav {
+    right: 0;
+    -webkit-transform: translate(0, 45px);
+        -ms-transform: translate(0, 45px);
+            transform: translate(0, 45px);
   }
   #fp-nav ul li a {
     margin-left: -5px;
+  }
+  #fp-nav ul li.active,
+  #fp-nav ul li:hover,
+  #fp-nav ul li.active:hover {
+    opacity: 1;
+  }
+  #fp-nav ul li.active span,
+  #fp-nav ul li:hover span,
+  #fp-nav ul li.active:hover span {
+    -webkit-transition-duration: 0s;
+            transition-duration: 0s;
+    background-color: #afafaf;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    top: 9px;
+    left: 9px;
+    color: white;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0.8em;
+    line-height: 1.4em;
   }
   #fp-nav .totalbar,
   #fp-nav .progressbar {
@@ -1871,7 +2036,7 @@ ul.tabs li.current:after {
     color: white;
     margin-top: 30px;
     padding-left: 20px;
-    font-size: 0.9em;
+    font-size: 0.6em;
   }
   footer .infos a {
     color: white;
@@ -1882,6 +2047,9 @@ ul.tabs li.current:after {
   }
   footer.brand .right {
     margin-top: -60px;
+  }
+  footer.brand .right .slogan {
+    display: none;
   }
   footer.brand .left {
     position: absolute;
@@ -1907,9 +2075,11 @@ ul.tabs li.current:after {
     /****interaction*****/
   }
   .fullpage section a.movedown {
-    bottom: 0;
+    bottom: 30px;
     padding-bottom: 0;
     font-size: 1em;
+    -webkit-animation: none;
+            animation: none;
   }
   .fullpage section article .instant {
     width: 48px;
@@ -1953,6 +2123,10 @@ ul.tabs li.current:after {
   .fullpage section.right .informations.informations-0,
   .fullpage section.left .informations.informations-0 {
     top: 55%;
+  }
+  .fullpage section.right .informations.informations-1,
+  .fullpage section.left .informations.informations-1 {
+    top: 232px;
   }
   .fullpage section.right .minor-title,
   .fullpage section.left .minor-title {
@@ -2164,6 +2338,19 @@ ul.tabs li.current:after {
     margin: 0 0px 10px 0px;
     padding: 0;
     font-size: 0.9em;
+  }
+  .fullpage .wrapper-informations .tab-content ul {
+    padding: 0 0 0 35px;
+  }
+  .fullpage .wrapper-informations .tab-content ul li {
+    line-height: 1.4em;
+  }
+}
+@media (max-width: 320px) and (max-height: 480px) {
+  .wrapper,
+  .fp-nav,
+  #mobile-menu {
+    display: none;
   }
 }
 /******* RETINA *******/
