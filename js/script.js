@@ -6,8 +6,8 @@
   var lundiPaques = new Date(2016, 2, 28);
             var jeudiAscension = new Date(2016, 4, 5);
             var lundiPentecote = new Date(2016, 4, 16);
-            var mois = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
-            var moisCourts = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jui', 'Jui', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'] ;
+            var mois = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
+            var moisCourts = ['Jjan', 'fév', 'mar', 'avr', 'mai', 'jui', 'jui', 'aoû', 'sep', 'oct', 'nov', 'déc'] ;
             var jours = [ 'Dimanche','Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
             var joursCourts = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
 			var joursFeries=[
@@ -103,7 +103,12 @@ var instPlumb = [];
 							format: 'dd/mm/yyyy',
 							selectMonths: true,
 							selectYears: true,
-			
+							onOpen: function() {
+							  fpAutoscroll(false);
+							},
+							onClose: function() {
+							 fpAutoscroll(true);
+							},
 							onSet: function(thingSet) {
 								if(thingSet.select){
 									delay.init(thingSet.select);
@@ -112,7 +117,10 @@ var instPlumb = [];
 									var start = delay.getStartDate().getDate()+" "+mois[(delay.getStartDate().getMonth())]+" "+delay.getStartDate().getFullYear();
 									var end = delay.getEndDate().getDate()+" "+mois[(delay.getEndDate().getMonth())]+" "+delay.getEndDate().getFullYear();
 									
-									$('.response').html('<strong>Vous devez impérativement renvoyer cette offre remplie entre '+start+' et '+end+'.</strong›');
+									$('.response').html('Vous devez impérativement renvoyer cette offre remplie <strong class="date-response">entre les '+start+' et '+end+'</strong› .');
+									
+									blink($('.date-response'));
+									
 									//$('#date-start').html(delay.getStartDate().getDate()+" "+mois[(delay.getStartDate().getMonth())]+" "+delay.getStartDate().getFullYear());
 									//$('#date-end').html(delay.getEndDate().getDate()+" "+mois[(delay.getEndDate().getMonth())]+" "+delay.getEndDate().getFullYear());
 									
@@ -124,6 +132,10 @@ var instPlumb = [];
 			
 			
 			}
+			 
+			 
+		
+			 
 			 
 			function BankDelayDates() {
 				// Date initiale
@@ -230,7 +242,21 @@ var instPlumb = [];
 			
 /*----------------- fin des fonctions calendrier ---------------------*/
 
-
+function blink(blinkText) {
+	TweenLite.to(blinkText, 0.3, {
+		autoAlpha: 0,
+		delay: 1,
+		onComplete: function() {
+			TweenLite.to(blinkText, 0.3, {
+				autoAlpha: 1,
+				delay: 0.3,
+				onComplete: blink,
+				onCompleteParams : [blinkText]
+				
+			});
+		}
+	});
+}
 
 function showPage(){
 	
@@ -238,6 +264,20 @@ function showPage(){
 
 }
 
+function detectSmallMobile(){
+
+	var hauteurMobile = $(window).height()
+	var largeurMobile = $(window).width();
+	
+	if(largeurMobile <= 480 && hauteurMobile<568 ){
+	return true; 
+	}else{
+	
+	return false; 
+	}
+	
+
+}
 function saySomething(string){
 
 	$('.fail').toggleClass('show');
@@ -308,6 +348,7 @@ function hideFooter() {
     
     
  function initFullpage(){
+ console.log("passe dns fullpage");
  //init fullpage
     var fp1 =  $('.fullpage')
          .fullpage({
@@ -319,9 +360,13 @@ function hideFooter() {
              scrollingSpeed: 1200,
              easing: 'easeInOutQuart',
              afterSlideLoad: function() {
-                 setTabs();
+             		
+                 
              },
              onLeave: function(index, nextIndex, direction) {
+             	updatebubbles(nextIndex);
+             
+            	 setTabs();
              	cancelMenuMobile();
                  if (nextIndex === 9) {
                      showFooter();
@@ -332,19 +377,29 @@ function hideFooter() {
          });
         }
         //end initfullpage
-        
-        
+   function fpAutoscroll(boleen){
+   	   $.fn.fullpage.setAutoScrolling(boleen);
+   	   $.fn.fullpage.setFitToSection(boleen);
+   	   
+   	   
+   
+   }
+ 
         
     //fonction d'animation en transition des onglets, initialisée au load de la page et aux transitions
 
 function setTabs() {
     var tabs = $('.wrapper-informations');
-    tabs.each(function() {
+    tabs.each(function(index) {
         var tab = $(this),
             tabItems = $('ul.tabs', tab),
             tabContentWrapper = $('.content-txt', tab);
-         	TweenMax.set(tabContentWrapper, {height:$(".tab-content",tab).outerHeight()});
-       // tabContentWrapper.height($(".tab-content", tab).outerHeight());
+       if(index != 0){
+       TweenMax.set(tabContentWrapper, {height:$(".tab-content",tab).outerHeight()});
+       }
+       		
+       
+       
         tabItems.on('click', 'li', function(event) {
         	cancelMenuMobile();
             var selectedItem = $(this);
@@ -386,20 +441,21 @@ function setbubbles() {
     $("#fp-nav ul li a span").each(function(i) {
             $(this).append(infosBubbles[i]);
         });
-    $("#fp-nav").append("<div class='totalbar'></div><div class='progressbar'></div>");
+   			 $("#fp-nav").append("<div class='totalbar'></div><div class='progressbar' style=\"height: 0px;\"'></div>");
 }
 
 function updatebubbles(index) {
-    $("#fp-nav .progressbar")
-        .height(43 * (index - 1));
-    $("#fp-nav ul li a span")
-        .each(function(i) {
+	
+    //$("#fp-nav .progressbar").css('height',(43 * (index - 1))+'px');
+    
+    TweenMax.to($("#fp-nav .progressbar"), 0.5, { height:43 * (index - 1)});
+      
+    
+    $("#fp-nav ul li a span").each(function(i) {
             if (i < index) {
-                $(this)
-                    .addClass("passed");
+                $(this).addClass("passed");
             } else {
-                $(this)
-                    .removeClass("passed");
+                $(this).removeClass("passed");
             }
         });
 }
@@ -444,7 +500,6 @@ function setjsPlumb() {
     /**** INIT ****/
 $(function() {
 
-
      setTabs();
      
      
@@ -468,8 +523,7 @@ $(function() {
      }
    });
 
-    $(document)
-        .scroll(function() {
+    $(document).scroll(function() {
             if ($(window)
                 .scrollTop() === 0) {
                 $('header .thematique')
@@ -486,28 +540,32 @@ $(function() {
             
         });
         
-         
-         
-       
+
     
-   
-    
-    $(window)
-        .load(function() {
-              initFullpage();
-              setCalendar();
-            //  $.fn.fullpage.setAutoScrolling(false);
-              setbubbles();
-              if (isMobile.apple.phone || isMobile.android.phone || isMobile.seven_inch) {
-                 
-              stepMobileMenu(); 
+    $(window).load(function() {
+              
+              if (isMobile.any) {
+              
+              	if(detectSmallMobile()==true){
+              	console.log("smallscreen")
+              	
+              	}else{
+              	console.log("largescreen")
+              	  initFullpage();
+              	}
+             
+		              setCalendar();
+		              setbubbles();
+		              stepMobileMenu(); 
+		           
                  
                  }else{
-                 setjsPlumb();
-                 SetParallax();	
+	                 initFullpage();
+	                 setCalendar();
+	                 setbubbles();
+	                 setjsPlumb();
+	                 SetParallax();	
                  }
-                 
-                 
               showPage();
               
         });
