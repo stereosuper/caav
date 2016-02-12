@@ -258,7 +258,6 @@ html.js #loader .message {
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 html.js #loader .message img {
@@ -354,7 +353,6 @@ section .tab-content li:before {
 }
 .wrapper.is-menu {
   -webkit-transform: translate(-100px, 0);
-      -ms-transform: translate(-100px, 0);
           transform: translate(-100px, 0);
   opacity: 0.5;
 }
@@ -412,7 +410,7 @@ button:focus {
 /******* elements brandinc CAAV (header et footer) *******/
 .brand .thematique {
   width: 220px;
-  height: auto;
+  height: 40px;
   padding: 5px 20px 5px 20px;
   position: absolute;
   display: block;
@@ -426,6 +424,10 @@ button:focus {
 }
 .brand .thematique.hide {
   opacity: 0;
+}
+.brand .thematique img {
+  height: 26px;
+  width: auto;
 }
 .brand .left {
   display: inline-block;
@@ -509,34 +511,29 @@ button:focus {
   left: 25%;
   top: 75%;
   -webkit-transform: translate(-25%, 0);
-      -ms-transform: translate(-25%, 0);
           transform: translate(-25%, 0);
   z-index: 50;
 }
 .interactions.interactions-3 {
   left: 20%;
   -webkit-transform: translate(-25%, 0);
-      -ms-transform: translate(-25%, 0);
           transform: translate(-25%, 0);
 }
 .interactions.interactions-4 {
   left: auto;
   right: 0;
   -webkit-transform: translate(-50%, 0);
-      -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
 }
 .interactions.interactions-5 {
   left: 20%;
   -webkit-transform: translate(-25%, 0);
-      -ms-transform: translate(-25%, 0);
           transform: translate(-25%, 0);
 }
 .interactions.interactions-6 {
   left: auto;
   right: 0;
   -webkit-transform: translate(-50%, 0);
-      -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
 }
 .interactions.large {
@@ -770,13 +767,11 @@ footer.brand .left .construire {
   box-shadow: transparent 0 0 0 0;
   top: 23px;
   -webkit-transform: rotate(225deg);
-      -ms-transform: rotate(225deg);
           transform: rotate(225deg);
 }
 #mobile-menu.actif:after {
   top: 23px;
   -webkit-transform: rotate(315deg);
-      -ms-transform: rotate(315deg);
           transform: rotate(315deg);
 }
 /******* HEADER *******/
@@ -922,7 +917,6 @@ header .right a:after {
   position: absolute;
   top: 50%;
   -webkit-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
   width: 45%;
 }
@@ -935,7 +929,6 @@ header .right a:after {
   z-index: 9;
   top: 50%;
   -webkit-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
 }
 .fullpage section .perso-1 {
@@ -1062,7 +1055,6 @@ header .right a:after {
   bottom: 20px;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
-      -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   -webkit-animation: defilement 0.5s linear infinite alternate;
           animation: defilement 0.5s linear infinite alternate;
@@ -1077,12 +1069,10 @@ header .right a:after {
 }
 .fullpage section a.movedown:hover:before {
   -webkit-transform: translateY(-5px);
-      -ms-transform: translateY(-5px);
           transform: translateY(-5px);
 }
 .fullpage section a.movedown:hover:after {
   -webkit-transform: translateY(5px);
-      -ms-transform: translateY(5px);
           transform: translateY(5px);
 }
 .fullpage section a.movedown:before {
@@ -1321,7 +1311,6 @@ ul.tabs li.current:after {
   background-color: black;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
-      -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   z-index: 100;
   opacity: 0;
@@ -1431,35 +1420,30 @@ ul.tabs li.current:after {
     left: 25%;
     top: 65%;
     -webkit-transform: translate(-25%, 0);
-        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
     z-index: 50;
   }
   .interactions.interactions-3 {
     left: 20%;
     -webkit-transform: translate(-25%, 0);
-        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
   }
   .interactions.interactions-4 {
     left: auto;
     right: 0;
     -webkit-transform: translate(-25%, 0);
-        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
   }
   .interactions.interactions-5 {
     left: 20%;
     top: 80%;
     -webkit-transform: translate(-25%, 0);
-        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
   }
   .interactions.interactions-6 {
     left: auto;
     right: 0;
     -webkit-transform: translate(-15%, 0);
-        -ms-transform: translate(-15%, 0);
             transform: translate(-15%, 0);
   }
   .interactions.large {
@@ -1536,35 +1520,30 @@ ul.tabs li.current:after {
     left: 25%;
     top: 65%;
     -webkit-transform: translate(-20%, 0);
-        -ms-transform: translate(-20%, 0);
             transform: translate(-20%, 0);
     z-index: 50;
   }
   .interactions.interactions-3 {
     left: 20%;
     -webkit-transform: translate(-25%, 0);
-        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
   }
   .interactions.interactions-4 {
     left: auto;
     right: 0;
     -webkit-transform: translate(-15%, 0);
-        -ms-transform: translate(-15%, 0);
             transform: translate(-15%, 0);
   }
   .interactions.interactions-5 {
     left: 20%;
     top: 70%;
     -webkit-transform: translate(-25%, 0);
-        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
   }
   .interactions.interactions-6 {
     left: auto;
     right: 0;
     -webkit-transform: translate(-15%, 0);
-        -ms-transform: translate(-15%, 0);
             transform: translate(-15%, 0);
   }
   .interactions.large {
@@ -1610,7 +1589,6 @@ ul.tabs li.current:after {
     min-height: 150px;
     top: 50%;
     -webkit-transform: translate(0, -50%);
-        -ms-transform: translate(0, -50%);
             transform: translate(0, -50%);
   }
   .fullpage section .perso-1 {
@@ -1701,6 +1679,9 @@ ul.tabs li.current:after {
   }
 }
 @media (max-width: 979px) {
+  #mobile-menu {
+    display: block;
+  }
   .connect {
     display: block;
     position: absolute;
@@ -1717,7 +1698,6 @@ ul.tabs li.current:after {
     background-color: black;
     left: 50%;
     -webkit-transform: translate(-50%, 0);
-        -ms-transform: translate(-50%, 0);
             transform: translate(-50%, 0);
     z-index: 100;
     opacity: 0;
@@ -1817,21 +1797,14 @@ ul.tabs li.current:after {
   }
   .slogan {
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: baseline;
     margin: 0 0  0 10px;
     color: white;
     z-index: 10;
     font-size: 1.4em;
   }
   .slogan .instant {
-    width: 65px;
-    height: 22px;
-    display: inline-block;
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    background: transparent url(../imgLayout/instant.svg) no-repeat 0 0;
-    background-size: 64px 25px;
+    vertical-align: baseline;
   }
   .brand .thematique {
     width: 220px;
@@ -1843,7 +1816,7 @@ ul.tabs li.current:after {
     right: 0px;
     color: white;
     font-weight: 700;
-    top: 80px;
+    top: 55px;
     -webkit-transition: 0.2s ease-in;
     transition: 0.2s ease-in;
   }
@@ -1997,7 +1970,6 @@ ul.tabs li.current:after {
     left: 25%;
     top: 45%;
     -webkit-transform: translate(-25%, 0);
-        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
     z-index: 50;
   }
@@ -2006,14 +1978,12 @@ ul.tabs li.current:after {
     right: 0;
     top: 35%;
     -webkit-transform: translate(0%, 0);
-        -ms-transform: translate(0%, 0);
             transform: translate(0%, 0);
   }
   .fullpage section .interactions.interactions-4 {
     left: 10%;
     right: 0;
     -webkit-transform: translate(0%, 0);
-        -ms-transform: translate(0%, 0);
             transform: translate(0%, 0);
   }
   .fullpage section .interactions.interactions-5 {
@@ -2024,7 +1994,6 @@ ul.tabs li.current:after {
     right: 0;
     top: 38%;
     -webkit-transform: translate(20%, 0);
-        -ms-transform: translate(20%, 0);
             transform: translate(20%, 0);
   }
   .fullpage section .interactions.interactions-7 {
@@ -2032,7 +2001,6 @@ ul.tabs li.current:after {
     right: 0;
     top: 38%;
     -webkit-transform: translate(15%, 0);
-        -ms-transform: translate(15%, 0);
             transform: translate(15%, 0);
   }
   .fullpage section.left .informations,
@@ -2041,7 +2009,6 @@ ul.tabs li.current:after {
     top: 60%;
     width: 70%;
     -webkit-transform: translate(-50%, 0);
-        -ms-transform: translate(-50%, 0);
             transform: translate(-50%, 0);
     left: 50%;
     margin: 0 auto  0 auto;
@@ -2058,7 +2025,6 @@ ul.tabs li.current:after {
     overflow: hidden;
     min-height: auto;
     -webkit-transform: translate(0, 70px);
-        -ms-transform: translate(0, 70px);
             transform: translate(0, 70px);
   }
   .fullpage section.left .illustrations .illustration,
@@ -2133,16 +2099,20 @@ ul.tabs li.current:after {
 }
 @media (max-width: 767px) {
   /*tab paysage*/
+  #mobile-menu {
+    display: block;
+  }
 }
 @media (max-width: 450px) {
   /*phone portrait*/
-  #mobile-menu {
+  #mobile-menu,
+  .scrollblock,
+  .movedown {
     display: block;
   }
   #fp-nav {
     right: 0;
     -webkit-transform: translate(0, 45px);
-        -ms-transform: translate(0, 45px);
             transform: translate(0, 45px);
   }
   #fp-nav ul li a {
@@ -2187,21 +2157,18 @@ ul.tabs li.current:after {
     top: 7px;
   }
   .slogan {
-    font-size: 0.95em;
+    font-size: 0.80em;
   }
   .slogan .instant {
-    width: 65px;
-    height: 22px;
-    display: inline-block;
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    background: transparent url(../imgLayout/instant.svg) no-repeat 0 0;
-    background-size: 64px 25px;
+    vertical-align: bottom;
   }
   .brand .thematique {
     top: 57px;
     width: 170px;
+    height: 30px;
+  }
+  .brand .thematique img {
+    height: 20px;
   }
   .brand .left {
     display: inline-block;
@@ -2397,7 +2364,6 @@ ul.tabs li.current:after {
     overflow: hidden;
     height: auto;
     -webkit-transform: translate(0px, 30px);
-        -ms-transform: translate(0px, 30px);
             transform: translate(0px, 30px);
   }
   .fullpage section.right .illustrations.small-5,
@@ -2406,7 +2372,6 @@ ul.tabs li.current:after {
     margin: 0 16.5% 0 16.5%;
     top: 0;
     -webkit-transform: translate(0, 50px);
-        -ms-transform: translate(0, 50px);
             transform: translate(0, 50px);
   }
   .fullpage section.right .illustrations .illustration,
@@ -2519,7 +2484,6 @@ ul.tabs li.current:after {
     right: 0;
     top: 36%;
     -webkit-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
             transform: translate(0, 0);
     padding-left: 13%;
   }
@@ -2529,12 +2493,10 @@ ul.tabs li.current:after {
     top: 30%;
     width: 100%;
     -webkit-transform: translate(0%, 0);
-        -ms-transform: translate(0%, 0);
             transform: translate(0%, 0);
   }
   .fullpage section .interactions.interactions-6 .interaction {
     -webkit-transform: translate(25%, 0);
-        -ms-transform: translate(25%, 0);
             transform: translate(25%, 0);
   }
   .fullpage section .interactions.interactions-5 {
@@ -2625,118 +2587,234 @@ ul.tabs li.current:after {
     line-height: 1em;
   }
 }
-@media (max-width: 320px) and (max-height: 480px) {
+html.crapyphone.js.loaded-page #mobile-menu,
+html.crapyphone.js.loaded-page .scrollblock,
+html.crapyphone.js.loaded-page .movedown {
+  display: none;
+}
+html.crapyphone input {
+  margin-left: 0;
+}
+html.crapyphone .fullpage .section {
+  width: 100%;
+  margin-bottom: 30px;
+}
+html.crapyphone .fullpage .section.left,
+html.crapyphone .fullpage .section.right {
+  top: auto;
+}
+html.crapyphone .fullpage .section.left .illustrations,
+html.crapyphone .fullpage .section.right .illustrations,
+html.crapyphone .fullpage .section.left .informations,
+html.crapyphone .fullpage .section.right .informations,
+html.crapyphone .fullpage .section.left .interactions,
+html.crapyphone .fullpage .section.right .interactions,
+html.crapyphone .fullpage .section.left .article,
+html.crapyphone .fullpage .section.right .article,
+html.crapyphone .fullpage .section.left .movedown,
+html.crapyphone .fullpage .section.right .movedown {
+  position: relative;
+  top: auto!important;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+html.crapyphone .fullpage .section.left .illustrations .house-1,
+html.crapyphone .fullpage .section.right .illustrations .house-1,
+html.crapyphone .fullpage .section.left .informations .house-1,
+html.crapyphone .fullpage .section.right .informations .house-1,
+html.crapyphone .fullpage .section.left .interactions .house-1,
+html.crapyphone .fullpage .section.right .interactions .house-1,
+html.crapyphone .fullpage .section.left .article .house-1,
+html.crapyphone .fullpage .section.right .article .house-1,
+html.crapyphone .fullpage .section.left .movedown .house-1,
+html.crapyphone .fullpage .section.right .movedown .house-1 {
+  margin: 0;
+}
+html.crapyphone .fullpage .section.left .illustrations.interactions-4,
+html.crapyphone .fullpage .section.right .illustrations.interactions-4,
+html.crapyphone .fullpage .section.left .informations.interactions-4,
+html.crapyphone .fullpage .section.right .informations.interactions-4,
+html.crapyphone .fullpage .section.left .interactions.interactions-4,
+html.crapyphone .fullpage .section.right .interactions.interactions-4,
+html.crapyphone .fullpage .section.left .article.interactions-4,
+html.crapyphone .fullpage .section.right .article.interactions-4,
+html.crapyphone .fullpage .section.left .movedown.interactions-4,
+html.crapyphone .fullpage .section.right .movedown.interactions-4 {
+  padding: 0;
+}
+html.crapyphone .fullpage .section.left .illustrations.interactions-6 .interaction:first-child,
+html.crapyphone .fullpage .section.right .illustrations.interactions-6 .interaction:first-child,
+html.crapyphone .fullpage .section.left .informations.interactions-6 .interaction:first-child,
+html.crapyphone .fullpage .section.right .informations.interactions-6 .interaction:first-child,
+html.crapyphone .fullpage .section.left .interactions.interactions-6 .interaction:first-child,
+html.crapyphone .fullpage .section.right .interactions.interactions-6 .interaction:first-child,
+html.crapyphone .fullpage .section.left .article.interactions-6 .interaction:first-child,
+html.crapyphone .fullpage .section.right .article.interactions-6 .interaction:first-child,
+html.crapyphone .fullpage .section.left .movedown.interactions-6 .interaction:first-child,
+html.crapyphone .fullpage .section.right .movedown.interactions-6 .interaction:first-child {
+  margin-left: -50px;
+}
+html.crapyphone .fullpage .section.left .illustrations .illustration.illu-7,
+html.crapyphone .fullpage .section.right .illustrations .illustration.illu-7,
+html.crapyphone .fullpage .section.left .informations .illustration.illu-7,
+html.crapyphone .fullpage .section.right .informations .illustration.illu-7,
+html.crapyphone .fullpage .section.left .interactions .illustration.illu-7,
+html.crapyphone .fullpage .section.right .interactions .illustration.illu-7,
+html.crapyphone .fullpage .section.left .article .illustration.illu-7,
+html.crapyphone .fullpage .section.right .article .illustration.illu-7,
+html.crapyphone .fullpage .section.left .movedown .illustration.illu-7,
+html.crapyphone .fullpage .section.right .movedown .illustration.illu-7 {
+  top: 0;
+}
+html.crapyphone .fullpage .section.left .illustrations .informations,
+html.crapyphone .fullpage .section.right .illustrations .informations,
+html.crapyphone .fullpage .section.left .informations .informations,
+html.crapyphone .fullpage .section.right .informations .informations,
+html.crapyphone .fullpage .section.left .interactions .informations,
+html.crapyphone .fullpage .section.right .interactions .informations,
+html.crapyphone .fullpage .section.left .article .informations,
+html.crapyphone .fullpage .section.right .article .informations,
+html.crapyphone .fullpage .section.left .movedown .informations,
+html.crapyphone .fullpage .section.right .movedown .informations {
+  width: 98%;
+  padding: 10px 10px 10px 10px ;
+}
+html.crapyphone .fullpage .section.left {
+  display: table;
+  width: 100%;
+}
+html.crapyphone .fullpage .section.left .illustrations {
+  display: table-header-group;
+}
+html.crapyphone .fullpage .section.left .informations {
+  display: table-footer-group;
+  width: 100%;
+}
+html.crapyphone .wrapper {
+  margin-top: 150px;
+}
+html.crapyphone footer {
+  position: relative;
+  width: 100%;
+  height: 45px;
+  margin-top: 75px;
+  bottom: 0;
+  z-index: 90;
+}
+@media (max-width: 320px) and (max-height: 568px) {
   html.js.loaded-page #mobile-menu,
   html.js.loaded-page .scrollblock,
   html.js.loaded-page .movedown {
     display: none;
   }
-  input {
+  html input {
     margin-left: 0;
   }
-  .fullpage .section {
+  html .fullpage .section {
     width: 100%;
     margin-bottom: 30px;
   }
-  .fullpage .section.left,
-  .fullpage .section.right {
+  html .fullpage .section.left,
+  html .fullpage .section.right {
     top: auto;
   }
-  .fullpage .section.left .illustrations,
-  .fullpage .section.right .illustrations,
-  .fullpage .section.left .informations,
-  .fullpage .section.right .informations,
-  .fullpage .section.left .interactions,
-  .fullpage .section.right .interactions,
-  .fullpage .section.left .article,
-  .fullpage .section.right .article,
-  .fullpage .section.left .movedown,
-  .fullpage .section.right .movedown {
+  html .fullpage .section.left .illustrations,
+  html .fullpage .section.right .illustrations,
+  html .fullpage .section.left .informations,
+  html .fullpage .section.right .informations,
+  html .fullpage .section.left .interactions,
+  html .fullpage .section.right .interactions,
+  html .fullpage .section.left .article,
+  html .fullpage .section.right .article,
+  html .fullpage .section.left .movedown,
+  html .fullpage .section.right .movedown {
     position: relative;
     top: auto!important;
     bottom: auto;
     left: auto;
     right: auto;
     -webkit-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
             transform: translate(0, 0);
   }
-  .fullpage .section.left .illustrations .house-1,
-  .fullpage .section.right .illustrations .house-1,
-  .fullpage .section.left .informations .house-1,
-  .fullpage .section.right .informations .house-1,
-  .fullpage .section.left .interactions .house-1,
-  .fullpage .section.right .interactions .house-1,
-  .fullpage .section.left .article .house-1,
-  .fullpage .section.right .article .house-1,
-  .fullpage .section.left .movedown .house-1,
-  .fullpage .section.right .movedown .house-1 {
+  html .fullpage .section.left .illustrations .house-1,
+  html .fullpage .section.right .illustrations .house-1,
+  html .fullpage .section.left .informations .house-1,
+  html .fullpage .section.right .informations .house-1,
+  html .fullpage .section.left .interactions .house-1,
+  html .fullpage .section.right .interactions .house-1,
+  html .fullpage .section.left .article .house-1,
+  html .fullpage .section.right .article .house-1,
+  html .fullpage .section.left .movedown .house-1,
+  html .fullpage .section.right .movedown .house-1 {
     margin: 0;
   }
-  .fullpage .section.left .illustrations.interactions-4,
-  .fullpage .section.right .illustrations.interactions-4,
-  .fullpage .section.left .informations.interactions-4,
-  .fullpage .section.right .informations.interactions-4,
-  .fullpage .section.left .interactions.interactions-4,
-  .fullpage .section.right .interactions.interactions-4,
-  .fullpage .section.left .article.interactions-4,
-  .fullpage .section.right .article.interactions-4,
-  .fullpage .section.left .movedown.interactions-4,
-  .fullpage .section.right .movedown.interactions-4 {
+  html .fullpage .section.left .illustrations.interactions-4,
+  html .fullpage .section.right .illustrations.interactions-4,
+  html .fullpage .section.left .informations.interactions-4,
+  html .fullpage .section.right .informations.interactions-4,
+  html .fullpage .section.left .interactions.interactions-4,
+  html .fullpage .section.right .interactions.interactions-4,
+  html .fullpage .section.left .article.interactions-4,
+  html .fullpage .section.right .article.interactions-4,
+  html .fullpage .section.left .movedown.interactions-4,
+  html .fullpage .section.right .movedown.interactions-4 {
     padding: 0;
   }
-  .fullpage .section.left .illustrations.interactions-6 .interaction:first-child,
-  .fullpage .section.right .illustrations.interactions-6 .interaction:first-child,
-  .fullpage .section.left .informations.interactions-6 .interaction:first-child,
-  .fullpage .section.right .informations.interactions-6 .interaction:first-child,
-  .fullpage .section.left .interactions.interactions-6 .interaction:first-child,
-  .fullpage .section.right .interactions.interactions-6 .interaction:first-child,
-  .fullpage .section.left .article.interactions-6 .interaction:first-child,
-  .fullpage .section.right .article.interactions-6 .interaction:first-child,
-  .fullpage .section.left .movedown.interactions-6 .interaction:first-child,
-  .fullpage .section.right .movedown.interactions-6 .interaction:first-child {
+  html .fullpage .section.left .illustrations.interactions-6 .interaction:first-child,
+  html .fullpage .section.right .illustrations.interactions-6 .interaction:first-child,
+  html .fullpage .section.left .informations.interactions-6 .interaction:first-child,
+  html .fullpage .section.right .informations.interactions-6 .interaction:first-child,
+  html .fullpage .section.left .interactions.interactions-6 .interaction:first-child,
+  html .fullpage .section.right .interactions.interactions-6 .interaction:first-child,
+  html .fullpage .section.left .article.interactions-6 .interaction:first-child,
+  html .fullpage .section.right .article.interactions-6 .interaction:first-child,
+  html .fullpage .section.left .movedown.interactions-6 .interaction:first-child,
+  html .fullpage .section.right .movedown.interactions-6 .interaction:first-child {
     margin-left: -50px;
   }
-  .fullpage .section.left .illustrations .illustration.illu-7,
-  .fullpage .section.right .illustrations .illustration.illu-7,
-  .fullpage .section.left .informations .illustration.illu-7,
-  .fullpage .section.right .informations .illustration.illu-7,
-  .fullpage .section.left .interactions .illustration.illu-7,
-  .fullpage .section.right .interactions .illustration.illu-7,
-  .fullpage .section.left .article .illustration.illu-7,
-  .fullpage .section.right .article .illustration.illu-7,
-  .fullpage .section.left .movedown .illustration.illu-7,
-  .fullpage .section.right .movedown .illustration.illu-7 {
+  html .fullpage .section.left .illustrations .illustration.illu-7,
+  html .fullpage .section.right .illustrations .illustration.illu-7,
+  html .fullpage .section.left .informations .illustration.illu-7,
+  html .fullpage .section.right .informations .illustration.illu-7,
+  html .fullpage .section.left .interactions .illustration.illu-7,
+  html .fullpage .section.right .interactions .illustration.illu-7,
+  html .fullpage .section.left .article .illustration.illu-7,
+  html .fullpage .section.right .article .illustration.illu-7,
+  html .fullpage .section.left .movedown .illustration.illu-7,
+  html .fullpage .section.right .movedown .illustration.illu-7 {
     top: 0;
   }
-  .fullpage .section.left .illustrations .informations,
-  .fullpage .section.right .illustrations .informations,
-  .fullpage .section.left .informations .informations,
-  .fullpage .section.right .informations .informations,
-  .fullpage .section.left .interactions .informations,
-  .fullpage .section.right .interactions .informations,
-  .fullpage .section.left .article .informations,
-  .fullpage .section.right .article .informations,
-  .fullpage .section.left .movedown .informations,
-  .fullpage .section.right .movedown .informations {
+  html .fullpage .section.left .illustrations .informations,
+  html .fullpage .section.right .illustrations .informations,
+  html .fullpage .section.left .informations .informations,
+  html .fullpage .section.right .informations .informations,
+  html .fullpage .section.left .interactions .informations,
+  html .fullpage .section.right .interactions .informations,
+  html .fullpage .section.left .article .informations,
+  html .fullpage .section.right .article .informations,
+  html .fullpage .section.left .movedown .informations,
+  html .fullpage .section.right .movedown .informations {
     width: 98%;
     padding: 10px 10px 10px 10px ;
   }
-  .fullpage .section.left {
+  html .fullpage .section.left {
     display: table;
     width: 100%;
   }
-  .fullpage .section.left .illustrations {
+  html .fullpage .section.left .illustrations {
     display: table-header-group;
   }
-  .fullpage .section.left .informations {
+  html .fullpage .section.left .informations {
     display: table-footer-group;
     width: 100%;
   }
-  .wrapper {
+  html .wrapper {
     margin-top: 150px;
   }
-  footer {
+  html footer {
     position: relative;
     width: 100%;
     height: 45px;

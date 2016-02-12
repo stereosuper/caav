@@ -268,12 +268,29 @@ function detectSmallMobile(){
 
 	var hauteurMobile = $(window).height()
 	var largeurMobile = $(window).width();
-	
-	if(largeurMobile <= 480 && hauteurMobile<568 ){
-	return true; 
+	//alert("h "+hauteurMobile+"---- l "+largeurMobile);
+	if(largeurMobile <= 320 && hauteurMobile<=568 ){
+			return true; 
+
 	}else{
+		
+			
+
+		if( isMobile.windows.phone && largeurMobile <= 480){
+			return true ; 
+
+		}else{
+		return false; 
+
+		}
+
+			
+		
+
+		
 	
-	return false; 
+
+
 	}
 	
 
@@ -547,10 +564,10 @@ $(function() {
               if (isMobile.any) {
               
               	if(detectSmallMobile()==true){
-              	console.log("smallscreen")
+              		$('html').addClass('crapyphone');
               	
               	}else{
-              	console.log("largescreen")
+          
               	  initFullpage();
               	}
              

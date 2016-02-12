@@ -243,22 +243,24 @@ label{
 /******* elements brandinc CAAV (header et footer) *******/
 .brand{
 	.thematique{
-	width: 220px;
-	height: auto;
-	padding: 5px 20px 5px 20px;
-	position: absolute;
-	display: block;
-	background:@rouge;
-	right: 0px;
-	color: white;
-	font-weight: 700;
-	top: 80px;
-	transition:  .2s ease-in;
-		
+		width: 220px;
+		height: 40px;
+		padding: 5px 20px 5px 20px;
+		position: absolute;
+		display: block;
+		background:@rouge;
+		right: 0px;
+		color: white;
+		font-weight: 700;
+		top: 80px;
+		transition:  .2s ease-in;
 		&.hide{
-		opacity: 0;
+			opacity: 0;
 		}
-		
+		img{
+			height: 26px;
+			width: auto;
+		}
 	}
 
 	.left{
@@ -340,6 +342,7 @@ font-size: 1.4em;
 	overflow: hidden;
 	background: transparent url(../imgLayout/instant.svg) no-repeat 0 0;
 	background-size:64px 25px;
+	   
 	}
 
 }
