@@ -11,62 +11,73 @@
 	  	<meta name='description' content=''>
 	  	<meta name='viewport' content='width=device-width,initial-scale=1'>
 		<style>
-		#launch-presentation {
-			position : absolute;
-			top: 0;
-			width: 100%;
-			height:100%;
-			background-color: grey;
+		
+		
+
+		body.with-popup{
+		/* on s'assure qu'il n'ya aucune marge sur le body, la class with-popup est ajoutée au chargement de l'iframe*/
 			margin: 0;
 			padding: 0;
+		}
+		#launch-presentation {
+						background-color: blue;
+			            color: #fff;
+			            padding: 10px;
+			            border: 1px solid #ccc;
+			            border-radius: 5px;
+			            width: 80px;
+						height:30px;
+						cursor:pointer;
+		}
+		#load {
+					position: absolute;
+					margin: 0;
+					padding: 0;
+					top: 0;
+		            background-color: white;
+		            width: 100%;
+					height:100%;
+				    display:none;
+				    overflow: hidden;
+				    border: none;
+		}
+		iframe.html{
+			overflow: hidden;
 		}
 		</style>
 	  	
 	</head>
 
-	<body>		
+	<body class="with-popup">		
 		
 	
-		<button type="button" id="launch-presentation">Click Me!</button>
-		<div =id="container-presentation"> </div>
+		<p id="launch-presentation">Click Me!</p>
+		<iframe id="load" src="" ></iframe>
 		
 		
-	  	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	  	
+		
+  <script src='js/jquery-2.1.4.min.js'></script> 	  	
 
 
 
 		<script type="text/javascript">
-		
-				
+				//variable globale indiquant la page à charger.
+				var pageToLoad='http://stereosuper.fr/valid/caav/integration/index.html';
 			
 				
-				$("#launch-presentation").on("click", function(){
-				  $.ajax("http://s.codepen.io/underthex/full/taFwA",{
-				    success: function(response){
-				      $("#container").html(response).show("slow");
-				    },
-				    error: function(request, errorType, errorMessage){
-				      alert("Error: " + errorType + " with error message: " + errorMessage);
-				    },
-				    timeout: 3000, //in milisecond and then call error (above)
-				    beforeSend: function(){}, // before ajax command fires off, set the loading animation/spinner here
-				    complete: function(){}, //run after success or after error (the very last thing). Good place to turn off the loading img/animation/spinner.
-				    data:{"confNum" : $("btn1").data("confNum")} //data query does not work with codepen, but will show up in the backend code as part of the URL: ?confNum=value-here
-				    //See example here: http://devcomtech.com/study/
-				  })
-				});
-				
-				
-				
-				
-				
-				
+				//on s'assure que la page dans laquelle se trouve le bouton est bien chargée
+				$(document).ready(function () {
+				//appel de la foncton de création de l'iframe.
+				           $('#launch-presentation').click(function (e) {
+				           $('#load').show();
+				           //attribution du lien
+				           $("#load").attr("src", pageToLoad);
+				           });
+				       });
 				
 				
 				
 						
-		
 		</script>
 	</body>
 
