@@ -365,7 +365,6 @@ function hideFooter() {
     
     
  function initFullpage(){
- console.log("passe dns fullpage");
  //init fullpage
     var fp1 =  $('.fullpage')
          .fullpage({
