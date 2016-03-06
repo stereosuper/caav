@@ -6,8 +6,8 @@
   var lundiPaques = new Date(2016, 2, 28);
             var jeudiAscension = new Date(2016, 4, 5);
             var lundiPentecote = new Date(2016, 4, 16);
-            var mois = ['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre'];
-            var moisCourts = ['Jjan', 'fév', 'mar', 'avr', 'mai', 'jui', 'jui', 'aoû', 'sep', 'oct', 'nov', 'déc'] ;
+            var mois = ['janvier', 'f&eacute;vrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'd&eacute;cembre'];
+            var moisCourts = ['jan', 'f&eacute;v', 'mar', 'avr', 'mai', 'jui', 'jui', 'aoû', 'sep', 'oct', 'nov', 'd&eacute;c'] ;
             var jours = [ 'Dimanche','Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
             var joursCourts = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
 			var joursFeries=[
@@ -34,10 +34,9 @@
 
 
 
-var errorTooOld ="<p>Nous sommes désolé, vous ne pourrez pas profiter pleinement de cette expérience sur votre matériel.</p><p>Vous pouvez en revanche <a href=\"\">télécharger l'infographie en pdf</a>, ou consulter le site sur votre tablette, ou votre ordinateur.</p><p>L'équipe du Crédit Agricole Atlantique-Vendée</p>";
-var errorLandscape ='<img class="rot-device" src="./imgLayout/rot-device.gif"/><p>Veuillez tournez votre appareil</p>';
+var errorLandscape ='<img class="rot-device" src="./imgLayout/rot-device.gif"/><p>Veuillez tourner votre appareil</p>';
 var theToggle = $('#mobile-menu');
-var infosBubbles = ["<em>i</em>", "1", "2", "3", "4", "5", "6", "7", "…"];
+var infosBubbles = ["<em>i</em>", "1", "2", "3", "4", "5", "6", "7", "&hellip\;"];
 var plumbStyle = {
     lineWidth: 1,
     strokeStyle: '#818a89',
@@ -69,7 +68,7 @@ var instPlumb = [];
              *
              * Ensuite, il faut indiquer la date de réception du prêt (sous le format timestamp) :
              *
-             *      delay.init(...);
+             *      delay.init(...); 
              *
              * Et on obtient les dates de début et de fin avec les méthodes suivantes :
              *
@@ -117,7 +116,7 @@ var instPlumb = [];
 									var start = delay.getStartDate().getDate()+" "+mois[(delay.getStartDate().getMonth())]+" "+delay.getStartDate().getFullYear();
 									var end = delay.getEndDate().getDate()+" "+mois[(delay.getEndDate().getMonth())]+" "+delay.getEndDate().getFullYear();
 									
-									$('.response').html('Vous devez impérativement renvoyer cette offre remplie <strong class="date-response">entre les '+start+' et '+end+'</strong› .');
+									$('.response').html('Vous devez imp&eacute;rativement renvoyer cette offre remplie <strong class="date-response">entre les '+start+' et '+end+'</strong› .');
 									
 									blink($('.date-response'));
 									
@@ -369,7 +368,7 @@ function hideFooter() {
     var fp1 =  $('.fullpage')
          .fullpage({
              verticalCentered: true,
-             anchors: ['introduction', 'prendre-rendez-vous', 'le-rendez-vous', 'acceptation-proposition', 'reception-offre-de-pret', 'delai-de-refexion', 'rendez-vous-notaire', 'vous-etes-proprietaire', 'et-ensuite'],
+             anchors: ['introduction', 'prendre-rendez-vous', 'le-rendez-vous', 'acceptation-proposition', 'reception-offre-de-pret', 'delai-de-reflexion', 'rendez-vous-notaire', 'vous-etes-proprietaire', 'et-ensuite'],
              navigation: true,
              navigationPosition: 'right',
              scrollBar: true,
