@@ -1114,12 +1114,15 @@ header .right a:after {
 }
 .fullpage section article .instant {
   display: inline-block;
+  vertical-align: top;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
-  background: transparent url(../imgLayout/instant-bl.svg) no-repeat 0 3px;
-  width: 60px;
-  padding-bottom: 5px;
+  background: transparent url(../imgLayout/instant-bl.svg) no-repeat 0 0;
+  width: 56px;
+  height: 19px;
+  background-size: 100% 100%;
+  margin: -2px 0 0 0;
 }
 #fp-nav {
   -webkit-transition: 0.2s ease-in;
@@ -1703,6 +1706,10 @@ ul.tabs li.current:after {
   }
 }
 @media (max-width: 979px) {
+  .fullpage section article .instant {
+    width: 50px;
+    height: 17px;
+  }
   #mobile-menu {
     display: block;
   }
@@ -1846,7 +1853,7 @@ ul.tabs li.current:after {
             transition: 0.2s ease-in;
   }
   .brand .thematique.hide {
-    opacity: 0;
+    pacity: 0;
   }
   .brand .left {
     display: inline-block;
@@ -2321,8 +2328,8 @@ ul.tabs li.current:after {
             animation: none;
   }
   .fullpage section article .instant {
-    width: 48px;
-    padding-bottom: 4px;
+    width: 44px;
+    height: 15px;
   }
   .fullpage section.right ul.tabs,
   .fullpage section.left ul.tabs {
