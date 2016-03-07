@@ -78,7 +78,7 @@ dfn {
 }
 mark {
   background: #ff0;
-  color: #000;
+  color: #000000;
 }
 code,
 kbd,
@@ -258,6 +258,7 @@ html.js #loader .message {
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
 }
 html.js #loader .message img {
@@ -347,12 +348,13 @@ section .tab-content li:before {
 }
 .wrapper {
   -webkit-transition: 0.2s ease-in;
-  transition: 0.2s ease-in;
+          transition: 0.2s ease-in;
   overflow: hidden;
   z-index: 11;
 }
 .wrapper.is-menu {
   -webkit-transform: translate(-100px, 0);
+      -ms-transform: translate(-100px, 0);
           transform: translate(-100px, 0);
   opacity: 0.5;
 }
@@ -364,7 +366,7 @@ img {
 a {
   text-decoration: none;
   -webkit-transition: 0.1s ease-in-out;
-  transition: 0.1s ease-in-out;
+          transition: 0.1s ease-in-out;
   color: #1eaf9c;
 }
 a:focus,
@@ -396,9 +398,7 @@ input {
   margin: 10px;
   padding: 3px 3px 3px 6px;
   border-radius: 3px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   border: 1px solid #27848a;
   width: 100px;
   text-align: center;
@@ -420,7 +420,7 @@ button:focus {
   font-weight: 700;
   top: 80px;
   -webkit-transition: 0.2s ease-in;
-  transition: 0.2s ease-in;
+          transition: 0.2s ease-in;
 }
 .brand .thematique.hide {
   opacity: 0;
@@ -511,29 +511,34 @@ button:focus {
   left: 25%;
   top: 75%;
   -webkit-transform: translate(-25%, 0);
+      -ms-transform: translate(-25%, 0);
           transform: translate(-25%, 0);
   z-index: 50;
 }
 .interactions.interactions-3 {
   left: 20%;
   -webkit-transform: translate(-25%, 0);
+      -ms-transform: translate(-25%, 0);
           transform: translate(-25%, 0);
 }
 .interactions.interactions-4 {
   left: auto;
   right: 0;
   -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
 }
 .interactions.interactions-5 {
   left: 20%;
   -webkit-transform: translate(-25%, 0);
+      -ms-transform: translate(-25%, 0);
           transform: translate(-25%, 0);
 }
 .interactions.interactions-6 {
   left: auto;
   right: 0;
   -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
 }
 .interactions.large {
@@ -565,8 +570,8 @@ button:focus {
   max-width: 100%;
 }
 .interactions .actions {
-  vertical-align: middle;
   display: inline-block;
+  vertical-align: middle;
 }
 .interactions .action {
   display: block;
@@ -732,7 +737,7 @@ footer.brand .left .construire {
   border-radius: 25px;
   vertical-align: middle;
   -webkit-transition: 0.3s ease-in-out;
-  transition: 0.3s ease-in-out;
+          transition: 0.3s ease-in-out;
   z-index: 120;
 }
 #mobile-menu.first-step {
@@ -767,11 +772,13 @@ footer.brand .left .construire {
   box-shadow: transparent 0 0 0 0;
   top: 23px;
   -webkit-transform: rotate(225deg);
+      -ms-transform: rotate(225deg);
           transform: rotate(225deg);
 }
 #mobile-menu.actif:after {
   top: 23px;
   -webkit-transform: rotate(315deg);
+      -ms-transform: rotate(315deg);
           transform: rotate(315deg);
 }
 /******* HEADER *******/
@@ -917,6 +924,7 @@ header .right a:after {
   position: absolute;
   top: 50%;
   -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
   width: 45%;
 }
@@ -929,6 +937,7 @@ header .right a:after {
   z-index: 9;
   top: 50%;
   -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
 }
 .fullpage section .perso-1 {
@@ -1055,6 +1064,7 @@ header .right a:after {
   bottom: 20px;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   -webkit-animation: defilement 0.5s linear infinite alternate;
           animation: defilement 0.5s linear infinite alternate;
@@ -1069,10 +1079,12 @@ header .right a:after {
 }
 .fullpage section a.movedown:hover:before {
   -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
           transform: translateY(-5px);
 }
 .fullpage section a.movedown:hover:after {
   -webkit-transform: translateY(5px);
+      -ms-transform: translateY(5px);
           transform: translateY(5px);
 }
 .fullpage section a.movedown:before {
@@ -1083,7 +1095,7 @@ header .right a:after {
   height: 8px;
   margin: 0 auto 3px auto;
   -webkit-transition: 0.1s ease-in;
-  transition: 0.1s ease-in;
+          transition: 0.1s ease-in;
 }
 .fullpage section a.movedown:after {
   display: block;
@@ -1094,7 +1106,7 @@ header .right a:after {
   margin: 0 auto 0 auto;
   padding-bottom: 15px;
   -webkit-transition: 0.1s ease-in;
-  transition: 0.1s ease-in;
+          transition: 0.1s ease-in;
 }
 .fullpage section article {
   vertical-align: top;
@@ -1111,7 +1123,7 @@ header .right a:after {
 }
 #fp-nav {
   -webkit-transition: 0.2s ease-in;
-  transition: 0.2s ease-in;
+          transition: 0.2s ease-in;
 }
 #fp-nav.is-mobile {
   right: -50px;
@@ -1203,7 +1215,7 @@ header .right a:after {
 ul.tabs {
   display: block;
   margin: 20px 0 0 0;
-  padding: 0 ;
+  padding: 0 0 1px 0;
   list-style: none;
   position: relative;
   overflow: hidden;
@@ -1212,9 +1224,9 @@ section ul.tabs li {
   box-sizing: border-box;
   background-color: #ffffff;
   display: inline-block;
+  vertical-align: top;
   cursor: pointer;
   border-radius: 0 0 10px 10px;
-  vertical-align: middle;
   padding: 10px 10px 10px 10px;
   margin: 0 0 0 -4px;
   list-style-type: none;
@@ -1311,6 +1323,7 @@ ul.tabs li.current:after {
   background-color: black;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
+      -ms-transform: translate(-50%, 0);
           transform: translate(-50%, 0);
   z-index: 100;
   opacity: 0;
@@ -1420,30 +1433,35 @@ ul.tabs li.current:after {
     left: 25%;
     top: 65%;
     -webkit-transform: translate(-25%, 0);
+        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
     z-index: 50;
   }
   .interactions.interactions-3 {
     left: 20%;
     -webkit-transform: translate(-25%, 0);
+        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
   }
   .interactions.interactions-4 {
     left: auto;
     right: 0;
     -webkit-transform: translate(-25%, 0);
+        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
   }
   .interactions.interactions-5 {
     left: 20%;
     top: 80%;
     -webkit-transform: translate(-25%, 0);
+        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
   }
   .interactions.interactions-6 {
     left: auto;
     right: 0;
     -webkit-transform: translate(-15%, 0);
+        -ms-transform: translate(-15%, 0);
             transform: translate(-15%, 0);
   }
   .interactions.large {
@@ -1520,30 +1538,35 @@ ul.tabs li.current:after {
     left: 25%;
     top: 65%;
     -webkit-transform: translate(-20%, 0);
+        -ms-transform: translate(-20%, 0);
             transform: translate(-20%, 0);
     z-index: 50;
   }
   .interactions.interactions-3 {
     left: 20%;
     -webkit-transform: translate(-25%, 0);
+        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
   }
   .interactions.interactions-4 {
     left: auto;
     right: 0;
     -webkit-transform: translate(-15%, 0);
+        -ms-transform: translate(-15%, 0);
             transform: translate(-15%, 0);
   }
   .interactions.interactions-5 {
     left: 20%;
     top: 70%;
     -webkit-transform: translate(-25%, 0);
+        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
   }
   .interactions.interactions-6 {
     left: auto;
     right: 0;
     -webkit-transform: translate(-15%, 0);
+        -ms-transform: translate(-15%, 0);
             transform: translate(-15%, 0);
   }
   .interactions.large {
@@ -1589,6 +1612,7 @@ ul.tabs li.current:after {
     min-height: 150px;
     top: 50%;
     -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
             transform: translate(0, -50%);
   }
   .fullpage section .perso-1 {
@@ -1698,6 +1722,7 @@ ul.tabs li.current:after {
     background-color: black;
     left: 50%;
     -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
             transform: translate(-50%, 0);
     z-index: 100;
     opacity: 0;
@@ -1818,7 +1843,7 @@ ul.tabs li.current:after {
     font-weight: 700;
     top: 55px;
     -webkit-transition: 0.2s ease-in;
-    transition: 0.2s ease-in;
+            transition: 0.2s ease-in;
   }
   .brand .thematique.hide {
     opacity: 0;
@@ -1970,6 +1995,7 @@ ul.tabs li.current:after {
     left: 25%;
     top: 45%;
     -webkit-transform: translate(-25%, 0);
+        -ms-transform: translate(-25%, 0);
             transform: translate(-25%, 0);
     z-index: 50;
   }
@@ -1978,12 +2004,14 @@ ul.tabs li.current:after {
     right: 0;
     top: 35%;
     -webkit-transform: translate(0%, 0);
+        -ms-transform: translate(0%, 0);
             transform: translate(0%, 0);
   }
   .fullpage section .interactions.interactions-4 {
     left: 10%;
     right: 0;
     -webkit-transform: translate(0%, 0);
+        -ms-transform: translate(0%, 0);
             transform: translate(0%, 0);
   }
   .fullpage section .interactions.interactions-5 {
@@ -1994,6 +2022,7 @@ ul.tabs li.current:after {
     right: 0;
     top: 38%;
     -webkit-transform: translate(20%, 0);
+        -ms-transform: translate(20%, 0);
             transform: translate(20%, 0);
   }
   .fullpage section .interactions.interactions-7 {
@@ -2001,6 +2030,7 @@ ul.tabs li.current:after {
     right: 0;
     top: 38%;
     -webkit-transform: translate(15%, 0);
+        -ms-transform: translate(15%, 0);
             transform: translate(15%, 0);
   }
   .fullpage section.left .informations,
@@ -2009,6 +2039,7 @@ ul.tabs li.current:after {
     top: 60%;
     width: 70%;
     -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
             transform: translate(-50%, 0);
     left: 50%;
     margin: 0 auto  0 auto;
@@ -2025,6 +2056,7 @@ ul.tabs li.current:after {
     overflow: hidden;
     min-height: auto;
     -webkit-transform: translate(0, 70px);
+        -ms-transform: translate(0, 70px);
             transform: translate(0, 70px);
   }
   .fullpage section.left .illustrations .illustration,
@@ -2113,6 +2145,7 @@ ul.tabs li.current:after {
   #fp-nav {
     right: 0;
     -webkit-transform: translate(0, 45px);
+        -ms-transform: translate(0, 45px);
             transform: translate(0, 45px);
   }
   #fp-nav ul li a {
@@ -2364,6 +2397,7 @@ ul.tabs li.current:after {
     overflow: hidden;
     height: auto;
     -webkit-transform: translate(0px, 30px);
+        -ms-transform: translate(0px, 30px);
             transform: translate(0px, 30px);
   }
   .fullpage section.right .illustrations.small-5,
@@ -2372,6 +2406,7 @@ ul.tabs li.current:after {
     margin: 0 16.5% 0 16.5%;
     top: 0;
     -webkit-transform: translate(0, 50px);
+        -ms-transform: translate(0, 50px);
             transform: translate(0, 50px);
   }
   .fullpage section.right .illustrations .illustration,
@@ -2484,6 +2519,7 @@ ul.tabs li.current:after {
     right: 0;
     top: 36%;
     -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
             transform: translate(0, 0);
     padding-left: 13%;
   }
@@ -2493,10 +2529,12 @@ ul.tabs li.current:after {
     top: 30%;
     width: 100%;
     -webkit-transform: translate(0%, 0);
+        -ms-transform: translate(0%, 0);
             transform: translate(0%, 0);
   }
   .fullpage section .interactions.interactions-6 .interaction {
     -webkit-transform: translate(25%, 0);
+        -ms-transform: translate(25%, 0);
             transform: translate(25%, 0);
   }
   .fullpage section .interactions.interactions-5 {
@@ -2619,6 +2657,7 @@ html.crapyphone .fullpage .section.right .movedown {
   left: auto;
   right: auto;
   -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
           transform: translate(0, 0);
 }
 html.crapyphone .fullpage .section.left .illustrations .house-1,
@@ -2737,6 +2776,7 @@ html.crapyphone footer {
     left: auto;
     right: auto;
     -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
             transform: translate(0, 0);
   }
   html .fullpage .section.left .illustrations .house-1,
