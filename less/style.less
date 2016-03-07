@@ -907,106 +907,89 @@ header{
 
 #fp-nav{
 	transition:  .2s ease-in;
-		&.is-mobile{
-		
+	&.is-mobile{
 		right: -50px;
-			&.show{
+		&.show{
 			right: 17px;
-			
-			}
 		}
-
-	//background-color: white;
+	}
 	.totalbar, .progressbar{
-	display: block;
-	position: absolute;
-	height: 100%;
-	width: 3px;
-	left: 23px;
-	background-color: @gris1;
-	top: 0;
+		display: block;
+		position: absolute;
+		height: 100%;
+		width: 3px;
+		left: 23px;
+		background-color: @gris1;
+		top: 0;
 	}
 	.progressbar{
-	background-color: @vert1;
-	width: 3px;
+		background-color: @vert1;
+		width: 3px;
 	}
 	ul{
 		li{
-		width: 36px;
-		height: 36px;
-			
+			width: 36px;
+			height: 36px;
 			a{
-			transition-duration:0s;
-			
-			span{
-			transition-duration:0s;
-			background-color: @gris1;
-			width: 18px;
-			height: 18px;
-			margin: 0;
-			top: 9px;
-			left: 9px;
-			color: white;
-			vertical-align: middle;
-			text-align: center;
-			font-size: 0.8em;
-			line-height: 1.4em;
-			
-				&.passed{background-color: @vert1;}
-				
-			
-			}
-			
-			&.active,&:hover,&.active:hover{
-					opacity: 1;
+				transition-duration:0s;
 				span{
-					opacity: 1;
-					background-color: @vert1;
-					width: 36px;
-					height: 36px;
+					transition-duration:0s;
+					background-color: @gris1;
+					width: 18px;
+					height: 18px;
 					margin: 0;
-					border-style: solid;
-					border-width: 9px;
-					border-color: @vert1transp;
-					top: 0;
-					left: 0;
-					-moz-background-clip: border;     /* Firefox 3.6 */
-					 -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
-					 background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-									
-					 -moz-background-clip: padding;     /* Firefox 3.6 */
-					 -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-					 background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-									
-					 -moz-background-clip: content;     /* Firefox 3.6 */
-					 -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
-					 background-clip: content-box; 
+					top: 9px;
+					left: 9px;
+					color: white;
+					vertical-align: middle;
+					text-align: center;
+					font-size: 0.8em;
+					line-height: 1.4em;
+					&.passed{
+						background-color: @vert1;
+					}
+				}
+				&.active,&:hover,&.active:hover{
+					opacity: 1;
+					span{
+						opacity: 1;
+						background-color: @vert1;
+						width: 36px;
+						height: 36px;
+						margin: 0;
+						border-style: solid;
+						border-width: 9px;
+						border-color: @vert1transp;
+						top: 0;
+						left: 0;
+						-moz-background-clip: border;     /* Firefox 3.6 */
+						 -webkit-background-clip: border;  /* Safari 4? Chrome 6? */
+						 background-clip: border-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+										
+						 -moz-background-clip: padding;     /* Firefox 3.6 */
+						 -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+						 background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+										
+						 -moz-background-clip: content;     /* Firefox 3.6 */
+						 -webkit-background-clip: content;  /* Safari 4? Chrome 6? */
+						 background-clip: content-box; 
+					}
 				}
 			}
-			
-			}
-			
-			
 			&:last-child{
-			a span {	line-height: 0.9em;}
-		
+				a span {
+					line-height: 0.9em;
+				}
 			}
-			
-			
-		
 		}
-		
-	
 	}
-
-     ul li:first-child{ 
-     	margin-top: -17px;
-	    font-family: "serif";     
-     }
+	ul li:first-child{ 
+		margin-top: -17px;
+		font-family: "serif";
+	}
 	ul li:last-child{ 
 		margin-bottom: -17px;
-		}
-
+	}
 }//end fp-nav
 
 /*gestion des onglets */
@@ -1106,11 +1089,9 @@ ul.tabs li.current{
 	display: block;
 }
 ///**JSPLUMB **///	
-
-	.plumb-container{
-		z-index: 9;
-	
-	}
+.plumb-container{
+	z-index: 9;
+}
 
 .connect{
 	display: block;
@@ -1119,7 +1100,7 @@ ul.tabs li.current{
 	width: 100%;
 	top: 0;
 	.c-point {
-	content: "";
+		content: "";
 		display: block;
 		position: absolute;
 		width: 2px;
@@ -1213,10 +1194,6 @@ ul.tabs li.current{
 ////**Datepicker**/
 
 ///*****/
-
-
-
-
 .reset-ul{
     padding: 0;
     margin: 0;
@@ -1235,6 +1212,5 @@ ul.tabs li.current{
 .clearfix:after{
     clear: both;
 }
-
 
 @import "_mediaqueries.less";
