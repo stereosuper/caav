@@ -1235,6 +1235,15 @@ html{
 			.section{
 				width: 100%;
 				margin-bottom: 30px;
+				.interactions{
+					.intervenant{
+						width: 60px;
+					}
+					.action{
+						width: 65px;
+						margin: 5px 20px 0 12px;
+					}
+				}
 				&.left,&.right{
 				top: auto;
 				
@@ -1278,9 +1287,22 @@ html{
 					//top : 0;
 					}
 					.informations{
-					 display: table-footer-group;
-					
-					width: 100%;
+						display: table-footer-group;
+						width: 100%;
+						padding: 0;
+						.wrapper-informations{
+							box-sizing: border-box;
+							padding-left: 10px;
+							padding-right: 10px;
+						}
+						.bullet{
+							margin-left: 10px;
+						}
+						h1, h2{
+							box-sizing: border-box;
+							padding-left: 10px;
+							padding-right: 10px;
+						}
 					}
 					
 				}//end 

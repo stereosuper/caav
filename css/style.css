@@ -2646,6 +2646,13 @@ html.crapyphone .fullpage .section {
   width: 100%;
   margin-bottom: 30px;
 }
+html.crapyphone .fullpage .section .interactions .intervenant {
+  width: 60px;
+}
+html.crapyphone .fullpage .section .interactions .action {
+  width: 65px;
+  margin: 5px 20px 0 12px;
+}
 html.crapyphone .fullpage .section.left,
 html.crapyphone .fullpage .section.right {
   top: auto;
@@ -2740,6 +2747,21 @@ html.crapyphone .fullpage .section.left .illustrations {
 html.crapyphone .fullpage .section.left .informations {
   display: table-footer-group;
   width: 100%;
+  padding: 0;
+}
+html.crapyphone .fullpage .section.left .informations .wrapper-informations {
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+html.crapyphone .fullpage .section.left .informations .bullet {
+  margin-left: 10px;
+}
+html.crapyphone .fullpage .section.left .informations h1,
+html.crapyphone .fullpage .section.left .informations h2 {
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 html.crapyphone .wrapper {
   margin-top: 150px;
@@ -2764,6 +2786,13 @@ html.crapyphone footer {
   html .fullpage .section {
     width: 100%;
     margin-bottom: 30px;
+  }
+  html .fullpage .section .interactions .intervenant {
+    width: 60px;
+  }
+  html .fullpage .section .interactions .action {
+    width: 65px;
+    margin: 5px 20px 0 12px;
   }
   html .fullpage .section.left,
   html .fullpage .section.right {
@@ -2859,6 +2888,21 @@ html.crapyphone footer {
   html .fullpage .section.left .informations {
     display: table-footer-group;
     width: 100%;
+    padding: 0;
+  }
+  html .fullpage .section.left .informations .wrapper-informations {
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  html .fullpage .section.left .informations .bullet {
+    margin-left: 10px;
+  }
+  html .fullpage .section.left .informations h1,
+  html .fullpage .section.left .informations h2 {
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   html .wrapper {
     margin-top: 150px;
