@@ -404,41 +404,36 @@ function hideFooter() {
     //fonction d'animation en transition des onglets, initialisée au load de la page et aux transitions
 
 function setTabs() {
-    var tabs = $('.wrapper-informations');
-    tabs.each(function(index) {
-        var tab = $(this),
-            tabItems = $('ul.tabs', tab),
-            tabContentWrapper = $('.content-txt', tab);
-       if(index != 0){
-       TweenMax.set(tabContentWrapper, {height:$(".tab-content",tab).outerHeight()});
-       }
-       		
-       
-       
-        tabItems.on('click', 'li', function(event) {
-        	cancelMenuMobile();
-            var selectedItem = $(this);
-            //on checke le click, et exclue le click sur celui en cours
-            if (!selectedItem.hasClass('current')) {
-                var selectedTab = selectedItem.data('tab'),
-                    selectedContent = tabContentWrapper.find('div[data-tab="' + selectedTab + '"]'),
-                    selectedContentHeight = selectedContent.outerHeight();
-                //on supprimer la classe current de ce lui en cours
-                tabItems.find('li.current', tab)
-                    .removeClass('current');
-                //on ajoute la classe current a l'item cliqué
-                selectedItem.addClass('current');
-                //on ajoute la classse current au contenu correspondant
-                selectedContent.addClass('current')
-                    .siblings('div')
-                    .removeClass('current');
-                //animation de la hauteur du bloc de contenu
-                tabContentWrapper.animate({
-                    'height': selectedContentHeight
-                }, 100);
-            }
-        });
-    });
+	var tabs = $('.wrapper-informations');
+	tabs.each(function(index) {
+		var tab = $(this),
+		tabItems = $('ul.tabs', tab),
+		tabContentWrapper = $('.content-txt', tab);
+		if(index != 0){
+			TweenMax.set(tabContentWrapper, {height:$(".tab-content.current",tab).outerHeight()});
+		}
+
+		tabItems.on('click', 'li', function(event) {
+			cancelMenuMobile();
+			var selectedItem = $(this);
+			//on checke le click, et exclue le click sur celui en cours
+			if (!selectedItem.hasClass('current')) {
+				var selectedTab = selectedItem.data('tab'),
+				selectedContent = tabContentWrapper.find('div[data-tab="' + selectedTab + '"]'),
+				selectedContentHeight = selectedContent.outerHeight();
+				//on supprimer la classe current de ce lui en cours
+				tabItems.find('li.current', tab).removeClass('current');
+				//on ajoute la classe current a l'item cliqué
+				selectedItem.addClass('current');
+				//on ajoute la classse current au contenu correspondant
+				selectedContent.addClass('current').siblings('div').removeClass('current');
+				//animation de la hauteur du bloc de contenu
+				tabContentWrapper.animate({
+					'height': selectedContentHeight
+				}, 100);
+			}
+		});
+	});
 }
 
 

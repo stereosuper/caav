@@ -1303,6 +1303,7 @@ ul.tabs li.current:after {
 .tab-content {
   display: none;
   box-sizing: border-box;
+  overflow: auto;
 }
 .tab-content.current {
   display: block;
